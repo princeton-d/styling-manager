@@ -1,11 +1,12 @@
-import { HashRouter as Router, Routes, Route } from 'react-router-dom' // BrowserRouter as Router 도 사용가능(차이점 있음)
+import { HashRouter as Router, Routes, Route } from 'react-router-dom'
+import Auth from '../routes/auth';
 import Home from '../routes/home';
 
-const AppRouter = () => {
+const AppRouter = ({ isLogin, handleGoogleLogin }) => {
   return (
     <Router>
       <Routes>
-        <Route path='/' element={<Home />} />
+        {isLogin ? <Route path='/' element={<Home />} /> : <Route path='/' element={<Auth handleGoogleLogin={handleGoogleLogin} />} />}
       </Routes>
     </Router>
   )
