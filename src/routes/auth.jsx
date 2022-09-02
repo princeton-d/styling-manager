@@ -1,4 +1,5 @@
 import React from 'react';
+import googleLogoImg from '../images/google_logo.png';
 import styles from './auth.module.css';
 
 const Auth = ({ handleGoogleLogin }) => {
@@ -23,6 +24,7 @@ const Auth = ({ handleGoogleLogin }) => {
               className={styles.googleLoginButton}
               onClick={handleGoogleLogin}
             >
+              <span className={styles.googleLogo}>logo</span>
               구글로 로그인
             </button>
             <button className={styles.guestLoginButton}>게스트로 입장</button>
