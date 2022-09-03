@@ -21,7 +21,11 @@ const App = () => {
   };
   return (
     <>
-      <AppRouter isLogin={isLogin} handleGoogleLogin={handleGoogleLogin} />
+      <AppRouter
+        isLogin={isLogin}
+        setIsLogin={setIsLogin}
+        handleGoogleLogin={handleGoogleLogin}
+      />
     </>
   );
 };
