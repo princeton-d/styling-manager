@@ -1,7 +1,9 @@
-import { Link, Route } from 'react-router-dom';
+import styles from './home.module.css';
+import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
 import HomeModal from '../../components/modal/homeModal';
 import ModalPortal from '../../components/modal/modalPortal';
+import Navigation from '../../components/navigation/navigation';
 
 const Home = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -15,15 +17,7 @@ const Home = () => {
     //   ) : null}
     // </div>
     <div>
-      <nav>
-        <Link to='/'>home</Link>
-        <Link to='boxShadowManager'>box Shadow</Link>
-        <Link to='textShadowManager'>text Shadow</Link>
-        <Link to='colorManager'>color</Link>
-        <Link to='fontManager'>font</Link>
-        <Link to='flexManager'>flex</Link>
-        <Link to='girdManager'>gird</Link>
-      </nav>
+      <Navigation />
     </div>
   );
 };

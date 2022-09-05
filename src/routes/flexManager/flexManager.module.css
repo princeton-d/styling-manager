@@ -1,0 +1,25 @@
+.container {
+  margin-left: 20rem;
+  padding: 1.5rem;
+}
+
+.propertyName {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.contentsBox {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 1rem;
+  width: 60%;
+  margin: 1rem;
+  border: 1px solid #333;
+}
+
+.contentsBox>p {
+  text-align: center;
+  line-height: 30px;
+  width: 30px;
+  height: 30px;
+}

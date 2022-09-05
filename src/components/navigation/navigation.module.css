@@ -1,0 +1,22 @@
+.navigationBar {
+  position: fixed;
+  width: 20rem;
+  height: 100%;
+  background-color: gray;
+}
+
+.home {
+  text-align: center;
+  font-size: 2.5rem;
+  margin: 2rem auto;
+  color: blue;
+}
+
+.menu {
+  width: 15rem;
+  padding: 0;
+}
+
+.menu li a {
+  display: block;
+}

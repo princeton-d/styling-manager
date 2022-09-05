@@ -12,13 +12,13 @@ const AppRouter = ({ isLogin, setIsLogin, handleGoogleLogin }) => {
   return (
     <Router>
       <Routes>
-        {isLogin ? <Route path="/" element={<Home />} /> : <Route path='/' element={<Auth handleGoogleLogin={handleGoogleLogin} isLogin={isLogin} setIsLogin={setIsLogin} />} />}
-        <Route path='boxShadowManager' element={<BoxShadowManager />} />
-        <Route path='textShadowManager' element={<TextShadowManager />} />
-        <Route path='colorManager' element={<ColorManager />} />
-        <Route path='fontManager' element={<FontManager />} />
-        <Route path='flexManager' element={<FlexManager />} />
-        <Route path='girdManager' element={<GirdManager />} />
+        {isLogin ? <Route path="/" element={<Home setIsLogin={setIsLogin} />} /> : <Route path='/' element={<Auth handleGoogleLogin={handleGoogleLogin} isLogin={isLogin} setIsLogin={setIsLogin} />} />}
+        <Route path='/boxShadowManager' element={<BoxShadowManager />} />
+        <Route path='/textShadowManager' element={<TextShadowManager />} />
+        <Route path='/colorManager' element={<ColorManager />} />
+        <Route path='/fontManager' element={<FontManager />} />
+        <Route path='/flexManager' element={<FlexManager />} />
+        <Route path='/girdManager' element={<GirdManager />} />
       </Routes>
     </Router>
   )
