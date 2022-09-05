@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import googleLogoImg from '../images/google_logo.png';
+// import googleLogoImg from '../../images/google_logo.png';
 import styles from './auth.module.css';
 
 const Auth = ({ handleGoogleLogin, isLogin, setIsLogin }) => {

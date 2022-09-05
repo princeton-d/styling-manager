@@ -1,3 +1,7 @@
+::-webkit-scrollbar {
+  display: none;
+}
+
 .container {
   display: flex;
   overflow: scroll;
@@ -120,7 +124,7 @@
 }
 
 .googleLogo {
-  background: url('../../public/images/google_logo.png')no-repeat center;
+  background: url('../../../public/images/google_logo.png')no-repeat center;
   background-size: 1.3rem;
   color: transparent;
 }
