@@ -1,0 +1,66 @@
+.propertyName {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.contentsBox {
+  display: flex;
+  width: calc(28rem + 2px);
+  margin: 1rem 0;
+  border: 1px solid #333;
+}
+
+.contentsBox>p {
+  text-align: center;
+  line-height: 4rem;
+  width: 4rem;
+  height: 4rem;
+}
+
+.contentsBox>p:nth-child(1) {
+  background-color: rgb(16, 110, 20);
+}
+
+.contentsBox>p:nth-child(2) {
+  background-color: rgb(69, 185, 230);
+}
+
+.contentsBox>p:nth-child(3) {
+  background-color: rgb(84, 95, 200);
+}
+
+.contentsBox>p:nth-child(4) {
+  background-color: rgb(117, 208, 209);
+}
+
+.contentsBox>p:nth-child(5) {
+  background-color: rgb(228, 76, 26);
+}
+
+.contentsBox>p:nth-child(6) {
+  background-color: rgb(235, 31, 138);
+}
+
+.contentsBox>p:nth-child(7) {
+  background-color: rgb(246, 181, 38);
+}
+
+.contentsBox>p:nth-child(8) {
+  background-color: rgb(69, 200, 181);
+}
+
+.contentsBox>p:nth-child(9) {
+  background-color: rgb(231, 56, 19);
+}
+
+.contentsBox>p:nth-child(10) {
+  background-color: rgb(142, 230, 76);
+}
+
+.contentsBox>p:nth-child(11) {
+  background-color: rgb(15, 90, 161);
+}
+
+.contentsBox>p:nth-child(12) {
+  background-color: rgb(77, 3, 83);
+}

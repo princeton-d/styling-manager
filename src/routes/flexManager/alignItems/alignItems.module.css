@@ -1,0 +1,40 @@
+.contentsBox {
+  display: flex;
+  width: calc(28rem + 2px);
+  height: 15rem;
+  margin: 1rem 0;
+  border: 1px solid #333;
+}
+
+.contentsBox>p {
+  text-align: center;
+  line-height: 4rem;
+  width: 4rem;
+  height: 4rem;
+}
+
+.contentsBox>p:nth-child(1) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 8rem;
+  font-size: 2rem;
+  font-weight: bold;
+  background-color: rgb(16, 110, 20);
+}
+
+.contentsBox>p:nth-child(2) {
+  background-color: rgb(69, 185, 230);
+}
+
+.contentsBox>p:nth-child(3) {
+  background-color: rgb(84, 95, 200);
+}
+
+.contentsBox>p:nth-child(4) {
+  background-color: rgb(117, 208, 209);
+}
+
+.contentsBox>p:nth-child(5) {
+  background-color: rgb(228, 76, 26);
+}
