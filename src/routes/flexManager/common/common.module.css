@@ -1,4 +1,6 @@
 .propertyName {
+  margin: 1rem 0;
+  color: #fff;
   font-size: 1.5rem;
   font-weight: bold;
 }
@@ -6,8 +8,11 @@
 .contentsBox {
   display: flex;
   width: calc(28rem + 2px);
+  /* height: calc(20rem + 2px); */
   margin: 1rem 0;
   border: 1px solid #333;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 .contentsBox>p {
@@ -15,6 +20,11 @@
   line-height: 4rem;
   width: 4rem;
   height: 4rem;
+}
+
+.elementButton {
+  padding: 0.4rem;
+  margin: 0.2rem;
 }
 
 .contentsBox>p:nth-child(1) {

@@ -15,21 +15,23 @@ const FlexWrap = () => {
   };
   return (
     <div className={styles.flexWrap}>
-      <p>Flex</p>
       <p className={common.propertyName}>flex-wrap</p>
       <input
+        className={common.elementButton}
         type='button'
         name='flex-wrap'
         value={'nowrap'}
         onClick={changedNowrap}
       />
       <input
+        className={common.elementButton}
         type='button'
         name='flex-wrap'
         value={'wrap'}
         onClick={changedWrap}
       />
       <input
+        className={common.elementButton}
         type='button'
         name='flex-wrap'
         value={'wrap-reverse'}

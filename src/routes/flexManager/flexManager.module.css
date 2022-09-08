@@ -1,25 +1,13 @@
 .container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
   margin-left: 20rem;
+  height: 100vh;
   padding: 1.5rem;
 }
 
-.propertyName {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.contentsBox {
-  display: flex;
-  flex-wrap: nowrap;
-  padding: 1rem;
-  width: 60%;
-  margin: 1rem;
-  border: 1px solid #333;
-}
-
-.contentsBox>p {
-  text-align: center;
-  line-height: 30px;
-  width: 30px;
-  height: 30px;
+.container div {
+  margin: 2rem 0rem;
 }

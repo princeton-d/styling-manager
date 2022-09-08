@@ -26,7 +26,7 @@ const Navigation = () => {
           <Link to='/flexManager'>flex</Link>
         </li>
         <li>
-          <Link to='/girdManager'>gird</Link>
+          <Link to='/gridManager'>grid</Link>
         </li>
         <Logout />
       </ul>

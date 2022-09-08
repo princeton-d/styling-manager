@@ -26,36 +26,43 @@ const AlignContent = () => {
     <div className={styles.alignContent}>
       <p className={common.propertyName}>align-content</p>
       <input
+        className={common.elementButton}
         type='button'
         name='align-items'
         value={'stretch'}
         onClick={changedStretch}
       />
       <input
+        className={common.elementButton}
         type='button'
         name='align-items'
         value={'center'}
         onClick={changedCenter}
       />
       <input
+        className={common.elementButton}
         type='button'
         name='align-items'
         value={'space-between'}
         onClick={changedSpaceBetween}
       />
       <input
+        className={common.elementButton}
         type='button'
         name='align-items'
         value={'space-around'}
         onClick={changedSpaceAround}
       />
       <input
+        className={common.elementButton}
         type='button'
         name='align-items'
         value={'flex-start'}
         onClick={changedFlexStart}
       />
+      <br />
       <input
+        className={common.elementButton}
         type='button'
         name='align-items'
         value={'flex-end'}

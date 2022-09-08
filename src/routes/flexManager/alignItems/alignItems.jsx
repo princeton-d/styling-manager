@@ -23,30 +23,35 @@ const AlignItems = () => {
     <div className={styles.alignItems}>
       <p className={common.propertyName}>align-items</p>
       <input
+        className={common.elementButton}
         type='button'
         name='align-items'
         value={'stretch'}
         onClick={changedStretch}
       />
       <input
+        className={common.elementButton}
         type='button'
         name='align-items'
         value={'center'}
         onClick={changedCenter}
       />
       <input
+        className={common.elementButton}
         type='button'
         name='align-items'
         value={'flex-start'}
         onClick={changedFlexStart}
       />
       <input
+        className={common.elementButton}
         type='button'
         name='align-items'
         value={'flex-end'}
         onClick={changedFlexEnd}
       />
       <input
+        className={common.elementButton}
         type='button'
         name='align-items'
         value={'baseline'}

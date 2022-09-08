@@ -9,8 +9,6 @@
   height: 100vh;
   justify-content: center;
   align-items: center;
-  background: url('https://zfile-public.ziongroup.net/adhoc/zauth-account/assets/images/backgrounds/dark-material-bg.jpg') no-repeat;
-  background-size: cover;
 }
 
 .loginBox {

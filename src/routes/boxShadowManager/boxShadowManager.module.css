@@ -1,4 +1,7 @@
 .container {
   margin-left: 20rem;
   text-align: center;
+  height: 100vh;
+  background: url('https://zfile-public.ziongroup.net/adhoc/zauth-account/assets/images/backgrounds/dark-material-bg.jpg') no-repeat;
+  background-size: cover;
 }

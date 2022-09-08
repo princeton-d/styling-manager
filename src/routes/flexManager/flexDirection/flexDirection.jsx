@@ -20,24 +20,28 @@ const FlexDirection = () => {
     <div className={styles.flexDirection}>
       <p className={common.propertyName}>flex-direction</p>
       <input
+        className={common.elementButton}
         type='button'
         name='flex-direction'
         value={'row'}
         onClick={changedRow}
       />
       <input
+        className={common.elementButton}
         type='button'
         name='flex-direction'
         value={'row-reverse'}
         onClick={changedRowReverse}
       />
       <input
+        className={common.elementButton}
         type='button'
         name='flex-direction'
         value={'column'}
         onClick={changedColumn}
       />
       <input
+        className={common.elementButton}
         type='button'
         name='flex-direction'
         value={'column-reverse'}

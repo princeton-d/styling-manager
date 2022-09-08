@@ -16,9 +16,10 @@ const Home = () => {
     //     </ModalPortal>
     //   ) : null}
     // </div>
-    <div>
+    <>
       <Navigation />
-    </div>
+      <div className={styles.wrapper}>Styling Manager</div>
+    </>
   );
 };
 

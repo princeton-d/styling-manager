@@ -23,30 +23,35 @@ const JustifyContent = () => {
     <div className={styles.justifyContent}>
       <p className={common.propertyName}>justify-content</p>
       <input
+        className={common.elementButton}
         type='button'
         name='justify-content'
         value={'flex-start'}
         onClick={changedFlexStart}
       />
       <input
+        className={common.elementButton}
         type='button'
         name='justify-content'
         value={'flex-end'}
         onClick={changedFlexEnd}
       />
       <input
+        className={common.elementButton}
         type='button'
         name='justify-content'
         value={'center'}
         onClick={changedCenter}
       />
       <input
+        className={common.elementButton}
         type='button'
         name='justify-content'
         value={'space-between'}
         onClick={changedSpaceBetween}
       />
       <input
+        className={common.elementButton}
         type='button'
         name='justify-content'
         value={'space-around'}

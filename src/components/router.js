@@ -18,7 +18,7 @@ const AppRouter = ({ isLogin, setIsLogin, handleGoogleLogin }) => {
         <Route path='/colorManager' element={<ColorManager />} />
         <Route path='/fontManager' element={<FontManager />} />
         <Route path='/flexManager' element={<FlexManager />} />
-        <Route path='/girdManager' element={<GirdManager />} />
+        <Route path='/gridManager' element={<GirdManager />} />
       </Routes>
     </Router>
   )
