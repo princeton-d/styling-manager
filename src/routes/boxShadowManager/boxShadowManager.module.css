@@ -5,3 +5,9 @@
   background: url('https://zfile-public.ziongroup.net/adhoc/zauth-account/assets/images/backgrounds/dark-material-bg.jpg') no-repeat;
   background-size: cover;
 }
+
+.boxShadowDiv {
+  width: 10rem;
+  height: 10rem;
+  background-color: blue;
+}
