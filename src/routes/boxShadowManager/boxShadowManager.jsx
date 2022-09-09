@@ -34,7 +34,7 @@ const BoxShadowManager = () => {
 
   useEffect(() => {
     // 비동기 방식인 changedValue 의 결과를 동기 방식으로 만들어 줌
-    boxShadowRef.current.style.boxShadow = `${shiftRightValue}px ${shiftDownValue}px ${blurValue}px ${spreadValue}px`;
+    boxShadowRef.current.style.boxShadow = `${shiftRightValue}px ${shiftDownValue}px ${blurValue}px ${spreadValue}px ${colorPaletteValue}`;
   }, [changedValue]);
   return (
     <>
@@ -108,7 +108,7 @@ const BoxShadowManager = () => {
               value={colorPaletteValue}
               onChange={() => {
                 setColorPaletteValue(colorPaletteRef.current.value);
-                console.log(colorPaletteValue);
+                // console.log(colorPaletteValue);
               }}
             />
           </div>
