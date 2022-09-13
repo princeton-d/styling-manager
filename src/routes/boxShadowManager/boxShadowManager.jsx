@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import BoxShadowSampleList from '../../components/BoxShadowSampleList/BoxShadowSampleList';
 import Navigation from '../../components/navigation/navigation';
 import styles from './boxShadowManager.module.css';
 
@@ -115,11 +116,12 @@ const BoxShadowManager = () => {
           <div className={styles.boxShadowInfo}>
             <p>
               {shiftRightValue}px {shiftDownValue}px {blurValue}px
-              {spreadValue}px {opacityValue}px
+              {spreadValue}px {opacityValue}px {colorPaletteValue}
             </p>
           </div>
           <div className={styles.resultBox}>
             <div ref={boxShadowRef} className={styles.boxShadowDiv}></div>
+            <BoxShadowSampleList />
           </div>
         </div>
       </section>

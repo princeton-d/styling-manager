@@ -11,7 +11,14 @@ const Navigation = () => {
       </Link>
       <ul className={styles.menu}>
         <li>
-          <Link to='/boxShadowManager'>box Shadow</Link>
+          <Link
+            to='/boxShadowManager'
+            onClick={(e) => {
+              console.log(e.target);
+            }}
+          >
+            box Shadow
+          </Link>
         </li>
         <li>
           <Link to='/textShadowManager'>text Shadow</Link>
