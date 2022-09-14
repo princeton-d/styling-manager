@@ -1,11 +1,10 @@
 import React from 'react';
-import { useRef } from 'react';
 import styles from './homeModal.module.css';
 
 const HomeModal = ({ openModal, setOpenModal }) => {
   const onClick = (e) => {
     if (e.target.id === 'modalClose') {
-      setOpenModal(false);
+      setOpenModal(!openModal);
     }
   };
   return (

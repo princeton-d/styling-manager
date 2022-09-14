@@ -35,7 +35,7 @@ const Navigation = () => {
         <li>
           <Link to='/gridManager'>grid</Link>
         </li>
-        <Logout />
+        {/* <Logout /> */}
       </ul>
     </nav>
   );

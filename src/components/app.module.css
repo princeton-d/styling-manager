@@ -18,21 +18,3 @@ a {
   background: url('https://zfile-public.ziongroup.net/adhoc/zauth-account/assets/images/backgrounds/dark-material-bg.jpg') no-repeat;
   background-size: cover;
 }
-
-@media all and (max-width: 2000px) {
-  html {
-    font-size: 13px;
-  }
-}
-
-@media all and (max-width: 1500px) {
-  html {
-    font-size: 12px;
-  }
-}
-
-@media all and (max-width: 1200px) {
-  html {
-    font-size: 10px;
-  }
-}
