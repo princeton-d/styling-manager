@@ -86,163 +86,295 @@
     },
     {
       "num": 21,
-      "style": ""
+      "style": "rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset"
     },
     {
       "num": 22,
-      "style": ""
+      "style": "rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px"
     },
     {
       "num": 23,
-      "style": ""
+      "style": "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px"
     },
     {
       "num": 24,
-      "style": ""
+      "style": "rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px"
     },
     {
       "num": 25,
-      "style": ""
+      "style": "rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset"
     },
     {
       "num": 26,
-      "style": ""
+      "style": "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px"
     },
     {
       "num": 27,
-      "style": ""
+      "style": "rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px"
     },
     {
       "num": 28,
-      "style": ""
+      "style": "rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px"
     },
     {
       "num": 29,
-      "style": ""
+      "style": "rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px"
     },
     {
       "num": 30,
-      "style": ""
+      "style": "rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px"
     },
     {
       "num": 31,
-      "style": ""
+      "style": "rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px"
     },
     {
       "num": 32,
-      "style": ""
+      "style": "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px"
     },
     {
       "num": 33,
-      "style": ""
+      "style": "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px"
     },
     {
       "num": 34,
-      "style": ""
+      "style": "rgba(0, 0, 0, 0.05) 0px 0px 0px 1px"
     },
     {
       "num": 35,
-      "style": ""
+      "style": "rgba(0, 0, 0, 0.05) 0px 1px 2px 0px"
     },
     {
       "num": 36,
-      "style": ""
+      "style": "rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px"
     },
     {
       "num": 37,
-      "style": ""
+      "style": "rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px"
     },
     {
       "num": 38,
-      "style": ""
+      "style": "rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px"
     },
     {
       "num": 39,
-      "style": ""
+      "style": "rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px"
     },
     {
       "num": 40,
-      "style": ""
+      "style": "rgba(0, 0, 0, 0.25) 0px 25px 50px -12px"
     },
     {
       "num": 41,
-      "style": ""
+      "style": "rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset"
     },
     {
       "num": 42,
-      "style": ""
+      "style": "rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px"
     },
     {
       "num": 43,
-      "style": ""
+      "style": "rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px"
     },
     {
       "num": 44,
-      "style": ""
+      "style": "rgba(0, 0, 0, 0.2) 0px 18px 50px -10px"
     },
     {
       "num": 45,
-      "style": ""
+      "style": "rgba(0, 0, 0, 0.2) 0px 18px 50px -10px"
     },
     {
       "num": 46,
-      "style": ""
+      "style": "rgba(0, 0, 0, 0.1) 0px 10px 50px"
     },
     {
       "num": 47,
-      "style": ""
+      "style": "rgba(0, 0, 0, 0.04) 0px 3px 5px"
     },
     {
       "num": 48,
-      "style": ""
+      "style": "rgba(240, 46, 170, 0.4) -5px 5px, rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px"
     },
     {
       "num": 49,
-      "style": ""
+      "style": "rgba(240, 46, 170, 0.4) 0px 5px, rgba(240, 46, 170, 0.3) 0px 10px, rgba(240, 46, 170, 0.2) 0px 15px, rgba(240, 46, 170, 0.1) 0px 20px, rgba(240, 46, 170, 0.05) 0px 25px"
     },
     {
       "num": 50,
-      "style": ""
+      "style": "rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px"
     },
     {
       "num": 51,
-      "style": ""
+      "style": "rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px"
     },
     {
       "num": 52,
-      "style": ""
+      "style": "rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em"
     },
     {
       "num": 53,
-      "style": ""
+      "style": "rgba(0, 0, 0, 0.1) 0px 1px 2px 0px"
     },
     {
       "num": 54,
-      "style": ""
+      "style": "rgba(27, 31, 35, 0.04) 0px 1px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px inset"
     },
     {
       "num": 55,
-      "style": ""
+      "style": "rgba(3, 102, 214, 0.3) 0px 0px 0px 3px"
     },
     {
       "num": 56,
-      "style": ""
+      "style": "rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px"
     },
     {
       "num": 57,
-      "style": ""
+      "style": "rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset"
     },
     {
       "num": 58,
-      "style": ""
+      "style": "rgba(0, 0, 0, 0.15) 0px 5px 15px 0px"
     },
     {
       "num": 59,
-      "style": ""
+      "style": "rgba(33, 35, 38, 0.1) 0px 10px 10px -10px"
     },
     {
       "num": 60,
-      "style": ""
+      "style": "blue 0px 0px 0px 2px inset, rgb(255, 255, 255) 10px -10px 0px -3px, rgb(31, 193, 27) 10px -10px, rgb(255, 255, 255) 20px -20px 0px -3px, rgb(255, 217, 19) 20px -20px, rgb(255, 255, 255) 30px -30px 0px -3px, rgb(255, 156, 85) 30px -30px, rgb(255, 255, 255) 40px -40px 0px -3px, rgb(255, 85, 85) 40px -40px"
+    },
+    {
+      "num": 61,
+      "style": "rgb(85, 91, 255) 0px 0px 0px 3px, rgb(31, 193, 27) 0px 0px 0px 6px, rgb(255, 217, 19) 0px 0px 0px 9px, rgb(255, 156, 85) 0px 0px 0px 12px, rgb(255, 85, 85) 0px 0px 0px 15px"
+    },
+    {
+      "num": 62,
+      "style": "rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset"
+    },
+    {
+      "num": 63,
+      "style": "rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px"
+    },
+    {
+      "num": 64,
+      "style": "rgba(17, 17, 26, 0.1) 0px 1px 0px"
+    },
+    {
+      "num": 65,
+      "style": "rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px"
+    },
+    {
+      "num": 66,
+      "style": "rgba(17, 17, 26, 0.1) 0px 0px 16px"
+    },
+    {
+      "num": 67,
+      "style": "rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px"
+    },
+    {
+      "num": 68,
+      "style": "rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px"
+    },
+    {
+      "num": 69,
+      "style": "rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px"
+    },
+    {
+      "num": 70,
+      "style": "rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px"
+    },
+    {
+      "num": 71,
+      "style": "rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px"
+    },
+    {
+      "num": 72,
+      "style": "rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px"
+    },
+    {
+      "num": 73,
+      "style": "rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px"
+    },
+    {
+      "num": 74,
+      "style": "rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px"
+    },
+    {
+      "num": 75,
+      "style": "rgba(0, 0, 0, 0.15) 0px 3px 3px 0px"
+    },
+    {
+      "num": 76,
+      "style": "rgba(0, 0, 0, 0.08) 0px 4px 12px"
+    },
+    {
+      "num": 77,
+      "style": "rgba(0, 0, 0, 0.15) 0px 2px 8px"
+    },
+    {
+      "num": 78,
+      "style": "rgba(0, 0, 0, 0.18) 0px 2px 4px"
+    },
+    {
+      "num": 79,
+      "style": "rgba(0, 0, 0, 0.1) -4px 9px 25px -6px"
+    },
+    {
+      "num": 80,
+      "style": "rgba(0, 0, 0, 0.2) 0px 60px 40px -7px"
+    },
+    {
+      "num": 81,
+      "style": "rgba(0, 0, 0, 0.4) 0px 30px 90px"
+    },
+    {
+      "num": 82,
+      "style": "rgba(0, 0, 0, 0.56) 0px 22px 70px 4px"
+    },
+    {
+      "num": 83,
+      "style": "rgba(0, 0, 0, 0.2) 0px 20px 30px"
+    },
+    {
+      "num": 84,
+      "style": "rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.9) 0px 0px 0px 1px"
+    },
+    {
+      "num": 85,
+      "style": "rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset"
+    },
+    {
+      "num": 86,
+      "style": "rgba(0, 0, 0, 0.09) 0px 3px 12px"
+    },
+    {
+      "num": 87,
+      "style": "rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px"
+    },
+    {
+      "num": 88,
+      "style": "rgba(0, 0, 0, 0.45) 0px 25px 20px -20px"
+    },
+    {
+      "num": 89,
+      "style": "rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset"
+    },
+    {
+      "num": 90,
+      "style": "rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset"
+    },
+    {
+      "num": 91,
+      "style": "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset"
+    },
+    {
+      "num": 92,
+      "style": "rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px"
+    },
+    {
+      "num": 93,
+      "style": "rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px"
     }
   ]
 }

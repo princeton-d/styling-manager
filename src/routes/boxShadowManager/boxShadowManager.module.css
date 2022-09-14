@@ -1,13 +1,101 @@
+/* 전체 영역 */
 .container {
-  margin-left: 20rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding-left: 20rem;
   text-align: center;
-  height: 100vh;
-  background: url('https://zfile-public.ziongroup.net/adhoc/zauth-account/assets/images/backgrounds/dark-material-bg.jpg') no-repeat;
-  background-size: cover;
+  width: 100%;
+  /* background: url('https://zfile-public.ziongroup.net/adhoc/zauth-account/assets/images/backgrounds/dark-material-bg.jpg') no-repeat;
+  background-size: cover; */
+  background-color: white;
 }
 
-.boxShadowDiv {
+.title {
+  font-size: 4rem;
+  font-weight: bolder;
+}
+
+/* box-shadow value 조절 영역 */
+.stateInfoArea {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.stateInfoArea>div {
+  padding: 1rem;
+}
+
+.stateInfoArea input {
+  width: 55vw;
+}
+
+.stateInfoArea span {
+  display: inline-block;
   width: 10rem;
-  height: 10rem;
-  background-color: blue;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.boxShadowCssInfo {
+  font-size: 2rem;
+  font-weight: 700;
+  transition: 0.2s;
+}
+
+.boxShadowCssInfo:hover {
+  scale: 1.1;
+  color: #555;
+}
+
+.insetArea {
+  font-size: 2rem;
+}
+
+input[type="checkbox" i] {
+  width: 20px;
+}
+
+/* 컬러박스 영역 */
+
+.colorBoxArea {
+  display: flex;
+}
+
+.colorLabel {
+  display: inline-block;
+  height: 4rem;
+  margin-right: 1rem;
+  font-size: 2rem;
+  line-height: 4rem;
+}
+
+input[type="color" i] {
+  width: 4rem;
+  height: 4rem;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}
+
+input[type="color" i]::-webkit-color-swatch {
+  border-radius: 50%;
+  border: none;
+}
+
+.resultBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15rem;
+  height: 15rem;
+  margin: 10rem;
+  background-color: gray;
+}
+
+.resultBox>p {
+  font-size: 2rem;
 }

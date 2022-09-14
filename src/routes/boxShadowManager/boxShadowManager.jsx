@@ -17,7 +17,9 @@ const BoxShadowManager = () => {
   const [spreadValue, setSpreadValue] = useState(0);
   const [blurValue, setBlurValue] = useState(0);
   const [opacityValue, setOpacityValue] = useState(100);
+  const [insetChecked, setInsetChecked] = useState(false);
   const [colorPaletteValue, setColorPaletteValue] = useState('#000000');
+  const [rgbaValue, setRgbaValue] = useState('rgba(0, 0, 0, 1)');
 
   const changedValue = (e) => {
     if (e.target.name === 'shiftRight') {
@@ -30,20 +32,41 @@ const BoxShadowManager = () => {
       setBlurValue(blurRef.current.value);
     } else if (e.target.name === 'opacity') {
       setOpacityValue(opacityRef.current.value);
+      setRgbaValue(hexToRgb(`${colorPaletteValue}`, `${opacityValue / 100}`));
+    } else if (e.target.name === 'colorBox') {
+      setColorPaletteValue(colorPaletteRef.current.value);
+      setRgbaValue(hexToRgb(`${colorPaletteValue}`, `${opacityValue / 100}`));
+    } else if (e.target.name === 'inset') {
+      setInsetChecked(!insetChecked);
+    }
+  };
+
+  const hexToRgb = (hex, alpha) => {
+    let r = parseInt(hex.slice(1, 3), 16),
+      g = parseInt(hex.slice(3, 5), 16),
+      b = parseInt(hex.slice(5, 7), 16);
+
+    if (0 <= alpha && alpha <= 1) {
+      return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+    } else {
+      return `rgb(${r}, ${g}, ${b})`;
     }
   };
 
   useEffect(() => {
-    // 비동기 방식인 changedValue 의 결과를 동기 방식으로 만들어 줌
-    boxShadowRef.current.style.boxShadow = `${shiftRightValue}px ${shiftDownValue}px ${blurValue}px ${spreadValue}px ${colorPaletteValue}`;
+    setRgbaValue(hexToRgb(`${colorPaletteValue}`, `${opacityValue / 100}`));
+    boxShadowRef.current.style.boxShadow = `${
+      insetChecked ? 'inset' : ''
+    } ${shiftRightValue}px ${shiftDownValue}px ${blurValue}px ${spreadValue}px ${rgbaValue}`;
   }, [changedValue]);
   return (
     <>
       <Navigation />
       <section className={styles.container}>
+        <p className={styles.title}>box Shadow Manager</p>
         <div className={styles.stateInfoArea}>
           <div className={styles.shiftRightArea}>
-            <p>Shift Right: {shiftRightValue}</p>
+            <span>Shift Right: {shiftRightValue}</span>
             <input
               ref={shiftRightRef}
               type='range'
@@ -55,7 +78,7 @@ const BoxShadowManager = () => {
             />
           </div>
           <div className={styles.shiftDownArea}>
-            <p>Shift Down: {shiftDownValue}</p>
+            <span>Shift Down: {shiftDownValue}</span>
             <input
               ref={shiftDownRef}
               type='range'
@@ -67,7 +90,7 @@ const BoxShadowManager = () => {
             />
           </div>
           <div className={styles.spreadArea}>
-            <p>Spread: {spreadValue}</p>
+            <span>Spread: {spreadValue}</span>
             <input
               ref={spreadRef}
               type='range'
@@ -79,7 +102,7 @@ const BoxShadowManager = () => {
             />
           </div>
           <div className={styles.blurArea}>
-            <p>Blur: {blurValue}</p>
+            <span>Blur: {blurValue}</span>
             <input
               ref={blurRef}
               type='range'
@@ -91,7 +114,7 @@ const BoxShadowManager = () => {
             />
           </div>
           <div className={styles.opacityArea}>
-            <p>Opacity: {opacityValue / 100}</p>
+            <span>Opacity: {opacityValue / 100}</span>
             <input
               ref={opacityRef}
               type='range'
@@ -103,27 +126,43 @@ const BoxShadowManager = () => {
             />
           </div>
           <div>
-            <input
-              ref={colorPaletteRef}
-              type='color'
-              value={colorPaletteValue}
-              onChange={() => {
-                setColorPaletteValue(colorPaletteRef.current.value);
-                // console.log(colorPaletteValue);
-              }}
-            />
+            <div className={styles.insetArea}>
+              <label htmlFor='insetCheckbox'>inset:</label>
+              <input
+                id='insetCheckbox'
+                type='checkbox'
+                name='inset'
+                onChange={changedValue}
+              />
+            </div>
+            <div className={styles.colorBoxArea}>
+              <label className={styles.colorLabel} htmlFor='colorInput'>
+                box-shadow color
+              </label>
+              <input
+                ref={colorPaletteRef}
+                className={styles.colorBox}
+                id='colorInput'
+                type='color'
+                name='colorBox'
+                value={colorPaletteValue}
+                onChange={changedValue}
+              />
+            </div>
           </div>
           <div className={styles.boxShadowInfo}>
-            <p>
-              {shiftRightValue}px {shiftDownValue}px {blurValue}px
-              {spreadValue}px {opacityValue}px {colorPaletteValue}
+            <p className={styles.boxShadowCssInfo}>
+              {shiftRightValue}px {shiftDownValue}
+              px {blurValue}px
+              {spreadValue}px {opacityValue}px {rgbaValue}{' '}
+              {insetChecked ? 'inset' : ''}
             </p>
           </div>
-          <div className={styles.resultBox}>
-            <div ref={boxShadowRef} className={styles.boxShadowDiv}></div>
-            <BoxShadowSampleList />
+          <div ref={boxShadowRef} className={styles.resultBox}>
+            <p>contents</p>
           </div>
         </div>
+        <BoxShadowSampleList />
       </section>
     </>
   );

@@ -20,13 +20,13 @@ const App = () => {
       });
   };
   return (
-    <>
+    <div className={styles.container}>
       <AppRouter
         isLogin={isLogin}
         setIsLogin={setIsLogin}
         handleGoogleLogin={handleGoogleLogin}
       />
-    </>
+    </div>
   );
 };
 

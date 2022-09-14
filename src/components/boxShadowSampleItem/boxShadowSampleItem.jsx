@@ -8,7 +8,10 @@ const BoxShadowSampleItem = ({ style }) => {
       style={{ boxShadow: style.style }}
       key={style.num}
     >
-      {style.num}
+      <p>{style.num}</p>
+      Click to copy
+      <br />
+      box-shadow
     </li>
   );
 };

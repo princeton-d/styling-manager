@@ -6,14 +6,17 @@
 
 html {
   font-size: 15px;
-  background: url('https://zfile-public.ziongroup.net/adhoc/zauth-account/assets/images/backgrounds/dark-material-bg.jpg') no-repeat;
-  background-size: cover;
 }
 
 a {
   color: #000;
   text-decoration: none;
   outline: none;
+}
+
+.container {
+  background: url('https://zfile-public.ziongroup.net/adhoc/zauth-account/assets/images/backgrounds/dark-material-bg.jpg') no-repeat;
+  background-size: cover;
 }
 
 @media all and (max-width: 2000px) {
