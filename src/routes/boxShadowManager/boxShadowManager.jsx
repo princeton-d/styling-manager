@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import BoxShadowSampleList from '../../components/BoxShadowSampleList/BoxShadowSampleList';
 import Navigation from '../../components/navigation/navigation';
 import styles from './boxShadowManager.module.css';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 const BoxShadowManager = () => {
   const shiftRightRef = useRef();
@@ -11,6 +12,7 @@ const BoxShadowManager = () => {
   const opacityRef = useRef();
   const boxShadowRef = useRef();
   const colorPaletteRef = useRef();
+  const copyTextRef = useRef();
 
   const [shiftRightValue, setShiftRightValue] = useState(0);
   const [shiftDownValue, setShiftDownValue] = useState(0);
@@ -151,12 +153,26 @@ const BoxShadowManager = () => {
             </div>
           </div>
           <div className={styles.boxShadowInfo}>
-            <p className={styles.boxShadowCssInfo}>
-              {shiftRightValue}px {shiftDownValue}
-              px {blurValue}px
-              {spreadValue}px {opacityValue}px {rgbaValue}{' '}
-              {insetChecked ? 'inset' : ''}
-            </p>
+            <CopyToClipboard
+              text={`box-shadow: ${shiftRightValue}px ${shiftDownValue}px ${blurValue}px ${spreadValue}px ${rgbaValue} ${
+                insetChecked ? 'inset' : ''
+              };`}
+            >
+              <p
+                className={styles.boxShadowCssInfo}
+                onClick={() => {
+                  copyTextRef.current.innerText = 'Copy';
+                  setTimeout(() => {
+                    copyTextRef.current.innerText = 'Click To Copy';
+                  }, 1000);
+                }}
+              >
+                {shiftRightValue}px {shiftDownValue}
+                px {blurValue}px
+                {spreadValue}px {rgbaValue} {insetChecked ? 'inset' : ''} <br />
+                <span ref={copyTextRef}>Click To Copy</span>
+              </p>
+            </CopyToClipboard>
           </div>
           <div ref={boxShadowRef} className={styles.resultBox}>
             <p>contents</p>

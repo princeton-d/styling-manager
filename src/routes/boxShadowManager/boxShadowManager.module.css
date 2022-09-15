@@ -41,14 +41,17 @@
 }
 
 .boxShadowCssInfo {
+  padding: 1rem;
+  border: 0.2rem solid black;
+  border-radius: 1rem;
+  background-color: #d8d8d8;
   font-size: 2rem;
   font-weight: 700;
   transition: 0.2s;
 }
 
 .boxShadowCssInfo:hover {
-  scale: 1.1;
-  color: #555;
+  scale: 1.05;
 }
 
 .insetArea {
