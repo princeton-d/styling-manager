@@ -55,6 +55,13 @@
 /* 컬러박스 영역 */
 .colorBoxArea {
   display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.colorBoxWrap {
+  display: flex;
+  justify-content: space-between;
 }
 
 .colorLabel {
@@ -83,10 +90,11 @@ input[type="color" i]::-webkit-color-swatch {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 15rem;
-  height: 15rem;
+  width: 20rem;
+  height: 20rem;
   margin: 10rem;
-  background-color: gray;
+  border: 2px solid #000;
+  background-color: #fff;
 }
 
 .resultText>p {
