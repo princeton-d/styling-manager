@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import BoxShadowSampleList from '../../components/BoxShadowSampleList/BoxShadowSampleList';
 import Navigation from '../../components/navigation/navigation';
 import styles from './boxShadowManager.module.css';
+import common from '../../common/common.module.css';
+import hexToRgb from '../../components/hexToRgb/hexToRgb';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 const BoxShadowManager = () => {
@@ -43,18 +45,6 @@ const BoxShadowManager = () => {
     }
   };
 
-  const hexToRgb = (hex, alpha) => {
-    let r = parseInt(hex.slice(1, 3), 16),
-      g = parseInt(hex.slice(3, 5), 16),
-      b = parseInt(hex.slice(5, 7), 16);
-
-    if (0 <= alpha && alpha <= 1) {
-      return `rgba(${r}, ${g}, ${b}, ${alpha})`;
-    } else {
-      return `rgb(${r}, ${g}, ${b})`;
-    }
-  };
-
   useEffect(() => {
     setRgbaValue(hexToRgb(`${colorPaletteValue}`, `${opacityValue / 100}`));
     boxShadowRef.current.style.boxShadow = `${
@@ -65,7 +55,7 @@ const BoxShadowManager = () => {
     <>
       <Navigation />
       <section className={styles.container}>
-        <p className={styles.title}>box Shadow Manager</p>
+        <p className={common.title}>box Shadow Manager</p>
         <div className={styles.stateInfoArea}>
           <div className={styles.shiftRightArea}>
             <span>Shift Right: {shiftRightValue}</span>

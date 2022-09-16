@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import styles from './justifyContent.module.css';
-import common from '../common/common.module.css';
+import common from '../../../common/common.module.css';
 
 const JustifyContent = () => {
   const contentsBox = useRef();

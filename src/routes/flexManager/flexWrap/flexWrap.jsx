@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import styles from './flexWrap.module.css';
-import common from '../common/common.module.css';
+import common from '../../../common/common.module.css';
 
 const FlexWrap = () => {
   const contentsBox = useRef();

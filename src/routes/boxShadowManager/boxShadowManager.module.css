@@ -12,11 +12,6 @@
   background-color: white;
 }
 
-.title {
-  font-size: 4rem;
-  font-weight: bolder;
-}
-
 /* box-shadow value 조절 영역 */
 .stateInfoArea {
   display: flex;

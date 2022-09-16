@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import styles from './alignItems.module.css';
-import common from '../common/common.module.css';
+import common from '../../../common/common.module.css';
 
 const AlignItems = () => {
   const contentsBox = useRef();

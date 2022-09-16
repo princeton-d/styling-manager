@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import styles from './flexDirection.module.css';
-import common from '../common/common.module.css';
+import common from '../../../common/common.module.css';
 
 const FlexDirection = () => {
   const contentsBox = useRef();
@@ -47,7 +47,7 @@ const FlexDirection = () => {
         value={'column-reverse'}
         onClick={changedColumnReverse}
       />
-      <div ref={contentsBox} className={common.contentsBox}>
+      <div ref={contentsBox} className={styles.contentsBox}>
         <p>1</p>
         <p>2</p>
         <p>3</p>
