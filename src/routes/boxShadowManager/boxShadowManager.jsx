@@ -55,7 +55,7 @@ const BoxShadowManager = () => {
     <>
       <Navigation />
       <section className={styles.container}>
-        <p className={common.title}>box Shadow Manager</p>
+        <p className={common.title}>Box Shadow Manager</p>
         <div className={styles.stateInfoArea}>
           <div className={styles.shiftRightArea}>
             <span>Shift Right: {shiftRightValue}</span>

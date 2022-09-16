@@ -1,5 +1,7 @@
 /* 타이틀 제목 */
 .title {
+  text-align: center;
+  width: 70vw;
   font-size: 4rem;
   font-weight: bolder;
 }

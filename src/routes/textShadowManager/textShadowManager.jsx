@@ -2,25 +2,51 @@ import React, { useState } from 'react';
 import Navigation from '../../components/navigation/navigation';
 import styles from './textShadowManager.module.css';
 import common from '../../common/common.module.css';
+import hexToRgb from '../../components/hexToRgb/hexToRgb';
 import { useRef } from 'react';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { useEffect } from 'react';
 
 const TextShadowManager = () => {
   const shiftRightRef = useRef();
   const shiftDownRef = useRef();
   const blurRef = useRef();
   const opacityRef = useRef();
+  const textShadowRef = useRef();
+  const colorPaletteRef = useRef();
+  const copyTextRef = useRef();
 
-  const [shiftRightValue, setShiftRightValue] = useState(0);
-  const [shiftDownValue, setShiftDownValue] = useState(0);
+  const [shiftRightValue, setShiftRightValue] = useState(2);
+  const [shiftDownValue, setShiftDownValue] = useState(2);
   const [blurValue, setBlurValue] = useState(0);
   const [opacityValue, setOpacityValue] = useState(100);
+  const [colorPaletteValue, setColorPaletteValue] = useState('#0000FF');
+  const [rgbaValue, setRgbaValue] = useState('rgba(0, 0, 0, 1)');
 
-  const changedValue = () => {};
+  const changedValue = (e) => {
+    if (e.target.name === 'shiftRight') {
+      setShiftRightValue(shiftRightRef.current.value);
+    } else if (e.target.name === 'shiftDown') {
+      setShiftDownValue(shiftDownRef.current.value);
+    } else if (e.target.name === 'blur') {
+      setBlurValue(blurRef.current.value);
+    } else if (e.target.name === 'opacity') {
+      setOpacityValue(opacityRef.current.value);
+      setRgbaValue(hexToRgb(`${colorPaletteValue}`, `${opacityValue / 100}`));
+    } else if (e.target.name === 'colorBox') {
+      setColorPaletteValue(colorPaletteRef.current.value);
+      setRgbaValue(hexToRgb(`${colorPaletteValue}`, `${opacityValue / 100}`));
+    }
+  };
+  useEffect(() => {
+    setRgbaValue(hexToRgb(`${colorPaletteValue}`, `${opacityValue / 100}`));
+    textShadowRef.current.style.textShadow = `${shiftRightValue}px ${shiftDownValue}px ${blurValue}px ${rgbaValue}`;
+  }, [changedValue]);
   return (
     <>
       <Navigation />
       <section className={styles.container}>
-        <p className={common.title}>text Shadow Manager</p>
+        <p className={common.title}>Text Shadow Manager</p>
         <div className={styles.stateInfoArea}>
           <div className={styles.shiftRightArea}>
             <span>Shift Right: {shiftRightValue}</span>
@@ -69,6 +95,43 @@ const TextShadowManager = () => {
               value={opacityValue}
               onChange={changedValue}
             />
+          </div>
+          <div className={styles.colorBoxArea}>
+            <label className={styles.colorLabel} htmlFor='colorInput'>
+              text-shadow color
+            </label>
+            <input
+              ref={colorPaletteRef}
+              className={styles.colorBox}
+              id='colorInput'
+              type='color'
+              name='colorBox'
+              value={colorPaletteValue}
+              onChange={changedValue}
+            />
+          </div>
+          <div className={styles.textShadowInfo}>
+            <CopyToClipboard
+              text={`text-shadow: ${shiftRightValue}px ${shiftDownValue}px ${blurValue}px ${rgbaValue};`}
+            >
+              <p
+                className={styles.textShadowCssInfo}
+                onClick={() => {
+                  copyTextRef.current.innerText = 'Copy';
+                  setTimeout(() => {
+                    copyTextRef.current.innerText = 'Click To Copy';
+                  }, 1000);
+                }}
+              >
+                {shiftRightValue}px {shiftDownValue}
+                px {blurValue}px {rgbaValue}
+                <br />
+                <span ref={copyTextRef}>Click To Copy</span>
+              </p>
+            </CopyToClipboard>
+          </div>
+          <div ref={textShadowRef} className={styles.resultText}>
+            <p>Result Text</p>
           </div>
         </div>
       </section>
