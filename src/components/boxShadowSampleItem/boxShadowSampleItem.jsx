@@ -22,7 +22,7 @@ const BoxShadowSampleItem = ({ style }) => {
       >
         <p>
           {style.num}
-          {<br />}Click to copy
+          {<br />}Click To Copy
         </p>
       </li>
     </CopyToClipboard>

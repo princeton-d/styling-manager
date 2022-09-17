@@ -1,8 +1,37 @@
 import React from 'react';
-import styles from 'textShadowSampleList.module.css';
+import { useRef } from 'react';
+import CopyToClipboard from 'react-copy-to-clipboard';
+import styles from './textShadowSampleItem.module.css';
 
-const TextShadowSampleItem = () => {
-  return <div></div>;
+const TextShadowSampleItem = ({ style }) => {
+  const liRef = useRef();
+  return (
+    <CopyToClipboard text={`a`}>
+      <li
+        ref={liRef}
+        className={styles.box}
+        onClick={(e) => {
+          e.target.innerText = `Copy`;
+          setTimeout(() => {
+            e.target.innerText = `Text Shadow
+            Click To Copy`;
+          }, 1000);
+        }}
+        style={{
+          textShadow: style.textShadow,
+          color: style.color,
+          backgroundColor: style.backgroundColor,
+          letterSpacing: style.letterSpacing,
+        }}
+      >
+        <p>
+          Text Shadow
+          <br />
+          Click To Copy
+        </p>
+      </li>
+    </CopyToClipboard>
+  );
 };
 
 export default TextShadowSampleItem;

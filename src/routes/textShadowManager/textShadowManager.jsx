@@ -3,6 +3,7 @@ import Navigation from '../../components/navigation/navigation';
 import styles from './textShadowManager.module.css';
 import common from '../../common/common.module.css';
 import hexToRgb from '../../components/hexToRgb/hexToRgb';
+import TextShadowSampleList from '../../components/textShadowSampleList/textShadowSampleList';
 import { useRef } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { useEffect } from 'react';
@@ -183,6 +184,7 @@ const TextShadowManager = () => {
             <p>Result Text</p>
           </div>
         </div>
+        <TextShadowSampleList />
       </section>
     </>
   );
