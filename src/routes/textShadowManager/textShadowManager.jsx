@@ -127,14 +127,6 @@ const TextShadowManager = () => {
                 onChange={changedValue}
               />
             </div>
-            {/*  */}
-            {/*  */}
-            {/*  */}
-            {/*  */}
-            {/*  */}
-            {/*  */}
-            {/*  */}
-            {/*  */}
             <div className={styles.colorBoxWrap}>
               <label className={styles.colorLabel} htmlFor='textColorInput'>
                 text color
@@ -149,14 +141,6 @@ const TextShadowManager = () => {
                 onChange={changedResultBoxColor}
               />
             </div>
-            {/*  */}
-            {/*  */}
-            {/*  */}
-            {/*  */}
-            {/*  */}
-            {/*  */}
-            {/*  */}
-            {/*  */}
             <div className={styles.colorBoxWrap}>
               <label
                 className={styles.colorLabel}
