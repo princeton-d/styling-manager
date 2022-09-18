@@ -1,7 +1,15 @@
+/* 전체 영역 */
 .container {
-  margin-left: 20rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding-left: 20rem;
   text-align: center;
-  height: 100vh;
-  background: url('https://zfile-public.ziongroup.net/adhoc/zauth-account/assets/images/backgrounds/dark-material-bg.jpg') no-repeat;
-  background-size: cover;
+  width: 100%;
+  background-color: white;
+  /* background: url('https://zfile-public.ziongroup.net/adhoc/zauth-account/assets/images/backgrounds/dark-material-bg.jpg') no-repeat;
+  background-size: cover; */
 }
+
+/* font 조절 영역 */
