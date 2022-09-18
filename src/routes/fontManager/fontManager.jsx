@@ -52,7 +52,14 @@ const FontManager = () => {
     }
   };
 
-  useEffect(() => {}, [changedValue]);
+  useEffect(() => {
+    fontRef.current.style.fontSize = `${fontSizeValue}px`;
+    fontRef.current.style.letterSpacing = `${letterSpacingValue / 10}px`;
+    fontRef.current.style.wordSpacing = `${wordSpacingValue / 10}px`;
+    fontRef.current.style.fontWeight = fontWeightValue * 100;
+    fontRef.current.style.textDecoration = printText();
+    fontRef.current.style.color = colorPaletteValue;
+  }, [changedValue]);
   return (
     <>
       <Navigation />
@@ -78,7 +85,7 @@ const FontManager = () => {
               type='range'
               name='letterSpacing'
               min='-100'
-              max='100'
+              max='200'
               value={letterSpacingValue}
               onChange={changedValue}
             />
@@ -89,8 +96,8 @@ const FontManager = () => {
               ref={wordSpacingRef}
               type='range'
               name='wordSpacing'
-              min='-100'
-              max='100'
+              min='-400'
+              max='200'
               value={wordSpacingValue}
               onChange={changedValue}
             />
@@ -135,6 +142,19 @@ const FontManager = () => {
               />
             </div>
           </div>
+          <div className={styles.resultText}>
+            <p ref={fontRef}>
+              The greatest glory in living lies not in never falling, but in
+              rising every time we fall.
+              <br />
+              – Nelson Mandela
+              <br />
+              – 인생에서 가장 큰 영광은 넘어지지 않는 것에 있는 것이 아니라 매번
+              일어선다는 데 있다.
+              <br />
+              (넬슨 만델라)
+            </p>
+          </div>
           <div className={styles.fontInfo}>
             <CopyToClipboard
               text={`font-size: ${fontSizeValue}px;
@@ -168,17 +188,6 @@ color: ${colorPaletteValue};`}
                 <span ref={copyTextRef}>Click To Copy</span>
               </p>
             </CopyToClipboard>
-          </div>
-          <div ref={fontRef}>
-            The greatest glory in living lies not in never falling, but in
-            rising every time we fall.
-            <br />
-            – Nelson Mandela
-            <br /> – 인생에서 가장 큰 영광은 넘어지지 않는 것에 있는 것이 아니라
-            매번 일어선다는 데 있다.
-            <br />
-            (넬슨 만델라)
-            <br />
           </div>
         </div>
       </section>

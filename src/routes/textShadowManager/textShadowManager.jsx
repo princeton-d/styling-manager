@@ -180,8 +180,8 @@ const TextShadowManager = () => {
               </p>
             </CopyToClipboard>
           </div>
-          <div ref={textShadowRef} className={styles.resultText}>
-            <p>Result Text</p>
+          <div className={styles.resultText}>
+            <p ref={textShadowRef}>Result Text</p>
           </div>
         </div>
         <TextShadowSampleList />

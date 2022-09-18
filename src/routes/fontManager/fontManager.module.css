@@ -8,8 +8,84 @@
   text-align: center;
   width: 100%;
   background-color: white;
-  /* background: url('https://zfile-public.ziongroup.net/adhoc/zauth-account/assets/images/backgrounds/dark-material-bg.jpg') no-repeat;
-  background-size: cover; */
 }
 
 /* font 조절 영역 */
+.stateInfoArea {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.stateInfoArea>div {
+  padding: 1rem;
+}
+
+.stateInfoArea input {
+  width: 55vw;
+}
+
+.stateInfoArea span {
+  display: inline-block;
+  width: 15rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.fontCssInfo {
+  padding: 1rem;
+  border: 0.2rem solid black;
+  border-radius: 1rem;
+  background-color: #d8d8d8;
+  font-size: 2rem;
+  font-weight: 700;
+  transition: 0.2s;
+}
+
+.fontCssInfo:hover {
+  scale: 1.05;
+}
+
+/* 컬러박스 영역 */
+.colorBoxArea {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.colorBoxWrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.colorLabel {
+  display: inline-block;
+  height: 4rem;
+  margin-right: 1rem;
+  font-size: 2rem;
+  line-height: 4rem;
+}
+
+input[type="color" i] {
+  width: 4rem;
+  height: 4rem;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}
+
+input[type="color" i]::-webkit-color-swatch {
+  border-radius: 50%;
+  border: none;
+}
+
+/* 결과 출력 영역 */
+.resultText {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  border: 2px solid #000;
+  background-color: #fff;
+}
