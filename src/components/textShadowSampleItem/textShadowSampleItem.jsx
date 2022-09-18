@@ -6,16 +6,7 @@ import styles from './textShadowSampleItem.module.css';
 const TextShadowSampleItem = ({ style }) => {
   const liRef = useRef();
   return (
-    <CopyToClipboard
-      text={`text-shadow: ${style.textShadow};
-    color: ${style.color};
-    background-color: ${style.backgroundColor};
-    ${
-      style.letterSpacing === undefined
-        ? ''
-        : `letter-spacing: ${style.letterSpacing};`
-    }`}
-    >
+    <CopyToClipboard text={style.cssCode}>
       <li
         ref={liRef}
         className={styles.box}
