@@ -1,4 +1,4 @@
-import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Link, BrowserRouter } from 'react-router-dom'
 import Auth from '../routes/auth/auth';
 import BoxShadowManager from '../routes/boxShadowManager/boxShadowManager'
 import ColorManager from '../routes/colorManager/colorManager'
@@ -10,7 +10,7 @@ import Home from '../routes/home/home';
 
 const AppRouter = ({ isLogin, setIsLogin, handleGoogleLogin }) => {
   return (
-    <Router>
+    <Router basename='styling_manager'>
       <Routes>
         {isLogin ? <Route path="/" element={<Home setIsLogin={setIsLogin} />} /> : <Route path='/' element={<Auth handleGoogleLogin={handleGoogleLogin} isLogin={isLogin} setIsLogin={setIsLogin} />} />}
         <Route path='/boxShadowManager' element={<BoxShadowManager />} />

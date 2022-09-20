@@ -1,8 +1,7 @@
 {
-  "name": "styling_manager",
+  "name": "styling-manager",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://websteak.github.io/styling_manager",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
@@ -41,5 +40,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "homepage": "https://websteak.github.io/styling-manager/"
 }
