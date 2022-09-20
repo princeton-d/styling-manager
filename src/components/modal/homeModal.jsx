@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './homeModal.module.css';
+import { loginEmail, signupEmail } from '../../fbase';
 
 const HomeModal = ({ openModal, setOpenModal }) => {
   const onClick = (e) => {

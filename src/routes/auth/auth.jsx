@@ -1,8 +1,11 @@
+import { async } from '@firebase/util';
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import React from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import HomeModal from '../../components/modal/homeModal';
 import ModalPortal from '../../components/modal/modalPortal';
+import { authService } from '../../fbase';
 import styles from './auth.module.css';
 
 const Auth = ({ handleGoogleLogin, isLogin, setIsLogin }) => {
@@ -10,6 +13,13 @@ const Auth = ({ handleGoogleLogin, isLogin, setIsLogin }) => {
 
   const onSignUpModal = () => {
     setOpenModal(!openModal);
+  };
+  const onSocialClick = async (e) => {
+    let provider;
+    if (e.target.name === 'google') {
+      provider = new GoogleAuthProvider();
+    }
+    await signInWithPopup(authService, provider);
   };
   return (
     <div>
@@ -43,7 +53,8 @@ const Auth = ({ handleGoogleLogin, isLogin, setIsLogin }) => {
           <div className={styles.otherLogins}>
             <button
               className={styles.googleLoginButton}
-              onClick={handleGoogleLogin}
+              name='google'
+              onClick={onSocialClick} // handleGoogleLogin
             >
               <span className={styles.googleLogo}>logo</span>
               구글로 로그인

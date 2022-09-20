@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Link, BrowserRouter } from 'react-router-dom'
 import Auth from '../routes/auth/auth';
 import BoxShadowManager from '../routes/boxShadowManager/boxShadowManager'
-import ColorManager from '../routes/colorManager/colorManager'
 import FontManager from '../routes/fontManager/fontManager'
 import TextShadowManager from '../routes/textShadowManager/textShadowManager'
 import GirdManager from '../routes/girdManager/girdManager'
@@ -16,7 +15,6 @@ const AppRouter = ({ isLogin, setIsLogin, handleGoogleLogin }) => {
         <Route path="/home" element={<Home />} />
         <Route path='/home/boxShadowManager' element={<BoxShadowManager />} />
         <Route path='/home/textShadowManager' element={<TextShadowManager />} />
-        <Route path='/home/colorManager' element={<ColorManager />} />
         <Route path='/home/fontManager' element={<FontManager />} />
         <Route path='/home/flexManager' element={<FlexManager />} />
         <Route path='/home/gridManager' element={<GirdManager />} />

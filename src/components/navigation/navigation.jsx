@@ -17,9 +17,6 @@ const Navigation = () => {
           <Link to='/home/textShadowManager'>text Shadow</Link>
         </li>
         <li>
-          <Link to='/home/colorManager'>color</Link>
-        </li>
-        <li>
           <Link to='/home/fontManager'>font</Link>
         </li>
         <li>
@@ -28,7 +25,9 @@ const Navigation = () => {
         <li>
           <Link to='/home/gridManager'>grid</Link>
         </li>
-        {/* <Logout /> */}
+        <li>
+          <Link to='/'>Go auth page</Link>
+        </li>
       </ul>
     </nav>
   );
