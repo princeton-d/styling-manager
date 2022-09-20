@@ -149,10 +149,10 @@ const FontManager = () => {
               <br />
               – Nelson Mandela
               <br />
-              – 인생에서 가장 큰 영광은 넘어지지 않는 것에 있는 것이 아니라 매번
-              일어선다는 데 있다.
               <br />
-              (넬슨 만델라)
+              인생에서 가장 큰 영광은 넘어지지 않는 것에 있는 것이 아니라 매번
+              일어선다는 데 있다.
+              <br />- 넬슨 만델라
             </p>
           </div>
           <div className={styles.fontInfo}>
