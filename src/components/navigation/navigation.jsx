@@ -6,34 +6,27 @@ import styles from './navigation.module.css';
 const Navigation = () => {
   return (
     <nav className={styles.navigationBar}>
-      <Link to='/'>
+      <Link to='/home'>
         <p className={styles.home}>Styling Manager</p>
       </Link>
       <ul className={styles.menu}>
         <li>
-          <Link
-            to='/boxShadowManager'
-            onClick={(e) => {
-              console.log(e.target);
-            }}
-          >
-            box Shadow
-          </Link>
+          <Link to='/home/boxShadowManager'>box Shadow</Link>
         </li>
         <li>
-          <Link to='/textShadowManager'>text Shadow</Link>
+          <Link to='/home/textShadowManager'>text Shadow</Link>
         </li>
         <li>
-          <Link to='/colorManager'>color</Link>
+          <Link to='/home/colorManager'>color</Link>
         </li>
         <li>
-          <Link to='/fontManager'>font</Link>
+          <Link to='/home/fontManager'>font</Link>
         </li>
         <li>
-          <Link to='/flexManager'>flex</Link>
+          <Link to='/home/flexManager'>flex</Link>
         </li>
         <li>
-          <Link to='/gridManager'>grid</Link>
+          <Link to='/home/gridManager'>grid</Link>
         </li>
         {/* <Logout /> */}
       </ul>

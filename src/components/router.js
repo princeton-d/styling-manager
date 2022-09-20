@@ -10,15 +10,16 @@ import Home from '../routes/home/home';
 
 const AppRouter = ({ isLogin, setIsLogin, handleGoogleLogin }) => {
   return (
-    <Router basename='styling_manager'>
+    <Router basename='styling-manager'>
       <Routes>
-        {isLogin ? <Route path="/" element={<Home setIsLogin={setIsLogin} />} /> : <Route path='/' element={<Auth handleGoogleLogin={handleGoogleLogin} isLogin={isLogin} setIsLogin={setIsLogin} />} />}
-        <Route path='/boxShadowManager' element={<BoxShadowManager />} />
-        <Route path='/textShadowManager' element={<TextShadowManager />} />
-        <Route path='/colorManager' element={<ColorManager />} />
-        <Route path='/fontManager' element={<FontManager />} />
-        <Route path='/flexManager' element={<FlexManager />} />
-        <Route path='/gridManager' element={<GirdManager />} />
+        <Route path='/' element={<Auth handleGoogleLogin={handleGoogleLogin} isLogin={isLogin} setIsLogin={setIsLogin} />} />
+        <Route path="/home" element={<Home />} />
+        <Route path='/home/boxShadowManager' element={<BoxShadowManager />} />
+        <Route path='/home/textShadowManager' element={<TextShadowManager />} />
+        <Route path='/home/colorManager' element={<ColorManager />} />
+        <Route path='/home/fontManager' element={<FontManager />} />
+        <Route path='/home/flexManager' element={<FlexManager />} />
+        <Route path='/home/gridManager' element={<GirdManager />} />
       </Routes>
     </Router>
   )

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import HomeModal from '../../components/modal/homeModal';
 import ModalPortal from '../../components/modal/modalPortal';
 import styles from './auth.module.css';
@@ -9,9 +10,6 @@ const Auth = ({ handleGoogleLogin, isLogin, setIsLogin }) => {
 
   const onSignUpModal = () => {
     setOpenModal(!openModal);
-  };
-  const guestLogin = () => {
-    setIsLogin(true);
   };
   return (
     <div>
@@ -50,8 +48,8 @@ const Auth = ({ handleGoogleLogin, isLogin, setIsLogin }) => {
               <span className={styles.googleLogo}>logo</span>
               구글로 로그인
             </button>
-            <button onClick={guestLogin} className={styles.guestLoginButton}>
-              게스트로 입장
+            <button className={styles.guestLoginButton}>
+              <Link to='/home'>게스트로 입장</Link>
             </button>
           </div>
         </div>
