@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/styling_manager/static/css/main.759262f6.css",
+    "main.js": "/styling_manager/static/js/main.4cd85901.js",
+    "static/media/google_logo.png": "/styling_manager/static/media/google_logo.81b266ef71e5ed02bccd.png",
+    "index.html": "/styling_manager/index.html",
+    "main.759262f6.css.map": "/styling_manager/static/css/main.759262f6.css.map",
+    "main.4cd85901.js.map": "/styling_manager/static/js/main.4cd85901.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.759262f6.css",
+    "static/js/main.4cd85901.js"
+  ]
+}
