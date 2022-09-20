@@ -48,9 +48,9 @@ const Auth = ({ handleGoogleLogin, isLogin, setIsLogin }) => {
               <span className={styles.googleLogo}>logo</span>
               구글로 로그인
             </button>
-            <button className={styles.guestLoginButton}>
-              <Link to='/home'>게스트로 입장</Link>
-            </button>
+            <Link to='/home'>
+              <button className={styles.guestLoginButton}>게스트로 입장</button>
+            </Link>
           </div>
         </div>
       </div>
