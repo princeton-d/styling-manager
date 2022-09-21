@@ -6,10 +6,12 @@ import hexToRgb from '../../components/hexToRgb/hexToRgb';
 import TextShadowSampleList from '../../components/textShadowSampleList/textShadowSampleList';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { useEffect } from 'react';
+import { useRef } from 'react';
 
 const TextShadowManager = () => {
-  const [content, setContent] = useState(1);
-
+  const resultTextRef = useRef();
+  // const [content, setContent] = useState(1);
+  // <button onClick={() => setContent((prev) => prev + 1)}>{content}</button>;
   const [inputValue, setInputValue] = useState({
     shiftRight: 2,
     shiftDown: 2,
@@ -24,18 +26,26 @@ const TextShadowManager = () => {
   const changedValue = (e) => {
     const key = e.target.name;
     setInputValue((prev) => ({ ...prev, [key]: e.target.value }));
-    if (
-      key === 'colorBox' ||
-      key === 'textColorBox' ||
-      key === 'backgroundColorBox'
-    ) {
-      console.log(e.target.value);
-    }
   };
 
-  // console.log(colorInputValue.colorPalette);
-  // console.log(colorInputValue.resultBoxBackgroundColor);
-  // console.log(colorInputValue.resultBoxColor);
+  useEffect(() => {
+    setInputValue((prev) => ({
+      ...prev,
+      rgba: hexToRgb(inputValue.colorPalette, inputValue.opacity / 100),
+    }));
+    resultTextRef.current.style.textShadow = `${inputValue.shiftRight}px ${inputValue.shiftDown}px ${inputValue.blur}px ${inputValue.rgba}`;
+    resultTextRef.current.style.color = `${inputValue.resultBoxColor}`;
+    resultTextRef.current.style.backgroundColor = `${inputValue.resultBoxBackgroundColor}`;
+  }, [
+    inputValue.shiftRight,
+    inputValue.shiftDown,
+    inputValue.blur,
+    inputValue.opacity,
+    inputValue.colorPalette,
+    inputValue.resultBoxColor,
+    inputValue.resultBoxBackgroundColor,
+    inputValue.rgba,
+  ]);
 
   useEffect(() => {
     // mount, unmount
@@ -103,7 +113,7 @@ const TextShadowManager = () => {
                 className={styles.colorBox}
                 id='colorInput'
                 type='color'
-                name='colorBox'
+                name='colorPalette'
                 value={inputValue.colorPalette}
                 onChange={changedValue}
               />
@@ -116,7 +126,7 @@ const TextShadowManager = () => {
                 className={styles.colorBox}
                 id='textColorInput'
                 type='color'
-                name='textColorBox'
+                name='resultBoxColor'
                 value={inputValue.resultBoxColor}
                 onChange={changedValue}
               />
@@ -132,7 +142,7 @@ const TextShadowManager = () => {
                 className={styles.colorBox}
                 id='backgroundColorInput'
                 type='color'
-                name='backgroundColorBox'
+                name='resultBoxBackgroundColor'
                 value={inputValue.resultBoxBackgroundColor}
                 onChange={changedValue}
               />
@@ -159,12 +169,9 @@ const TextShadowManager = () => {
               </p>
             </CopyToClipboard>
           </div>
-          <div className={styles.resultText}>
+          <div ref={resultTextRef} className={styles.resultText}>
             <p>Result Text</p>
           </div>
-          <button onClick={() => setContent((prev) => prev + 1)}>
-            {content}
-          </button>
         </div>
         <TextShadowSampleList />
       </section>
