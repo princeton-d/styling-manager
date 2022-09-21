@@ -8,18 +8,16 @@ import ModalPortal from '../../components/modal/modalPortal';
 import { authService } from '../../fbase';
 import styles from './auth.module.css';
 
-const Auth = ({ handleGoogleLogin, isLogin, setIsLogin }) => {
+const Auth = ({ isLogin, setIsLogin }) => {
   const [openModal, setOpenModal] = useState(false);
 
   const onSignUpModal = () => {
     setOpenModal(!openModal);
   };
   const onSocialClick = async (e) => {
-    let provider;
-    if (e.target.name === 'google') {
-      provider = new GoogleAuthProvider();
-    }
-    await signInWithPopup(authService, provider);
+    const provider = new GoogleAuthProvider();
+    const data = await signInWithPopup(authService, provider);
+    console.log(data);
   };
   return (
     <div>
@@ -54,7 +52,7 @@ const Auth = ({ handleGoogleLogin, isLogin, setIsLogin }) => {
             <button
               className={styles.googleLoginButton}
               name='google'
-              onClick={onSocialClick} // handleGoogleLogin
+              onClick={onSocialClick}
             >
               <span className={styles.googleLogo}>logo</span>
               구글로 로그인

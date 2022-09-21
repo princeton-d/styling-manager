@@ -1,9 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './homeModal.module.css';
-import { loginEmail, signupEmail } from '../../fbase';
+import { authService } from '../../fbase';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 const HomeModal = ({ openModal, setOpenModal }) => {
-  const onClick = (e) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const onChange = (e) => {
+    if (e.target.name === 'email') {
+      setEmail(e.target.value);
+    } else if (e.target.name === 'password') {
+      setPassword(e.target.value);
+    }
+    console.log(email, password);
+  };
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const data = await createUserWithEmailAndPassword(
+        authService,
+        email,
+        password
+      );
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const onClick = async (e) => {
     if (e.target.id === 'modalClose') {
       setOpenModal(!openModal);
     }
@@ -21,14 +46,22 @@ const HomeModal = ({ openModal, setOpenModal }) => {
         </button>
         <p className={styles.title}>회원가입</p>
         <form className={styles.signForm}>
-          <input required type='text' placeholder='이름' />
-          <input required type='email' placeholder='아이디(이메일)' />
+          <input required type='text' placeholder='이름' onSubmit={onSubmit} />
+          <input
+            required
+            type='email'
+            name='email'
+            placeholder='아이디(이메일)'
+            onChange={onChange}
+          />
           <input
             required
             minLength='6'
             maxLength='16'
             type='password'
+            name='password'
             placeholder='비밀번호(6~16자 이내)'
+            onChange={onChange}
           />
           <input
             required

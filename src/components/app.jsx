@@ -1,31 +1,29 @@
-import { signInWithPopup } from 'firebase/auth';
 import React from 'react';
 import { useState } from 'react';
-import { googleLoginProvider, authService } from '../fbase';
 import AppRouter from './router';
 import styles from './app.module.css';
+import { authService } from '../fbase';
+import { useEffect } from 'react';
 
 const App = () => {
-  const [isLogin, setIsLogin] = useState(false);
-  const [userGoogleData, setUserGoogleData] = useState(null);
-
-  const handleGoogleLogin = () => {
-    const provider = googleLoginProvider; // provider를 google로 설정
-    signInWithPopup(authService, provider) // popup을 이용해 로그인 페이지 구성
-      .then((data) => {
-        setUserGoogleData(data.user);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+  const [init, setInit] = useState(false);
+  const [isLogin, setIsLogin] = useState(false); // 유저의 로그인 정보
+  useEffect(() => {
+    authService.onAuthStateChanged((user) => {
+      if (user) {
+        setIsLogin(true);
+      } else {
+        setIsLogin(false);
+      }
+      setInit(true);
+      console.log(user);
+    }, []); // 로그인 정보가 변화되는 것을 감지함
+  });
   return (
     <div className={styles.container}>
-      <AppRouter
-        isLogin={isLogin}
-        setIsLogin={setIsLogin}
-        handleGoogleLogin={handleGoogleLogin}
-      />
+      {console.log(`isLogin: ${isLogin}`)}
+      {console.log(`init: ${init}`)}
+      <AppRouter isLogin={isLogin} setIsLogin={setIsLogin} />
     </div>
   );
 };
