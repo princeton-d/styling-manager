@@ -9,8 +9,6 @@ import { useRef } from 'react';
 
 const TextShadowManager = () => {
   const resultTextRef = useRef();
-  // const [content, setContent] = useState(1);
-  // <button onClick={() => setContent((prev) => prev + 1)}>{content}</button>;
   const [inputValue, setInputValue] = useState({
     shiftRight: 2,
     shiftDown: 2,

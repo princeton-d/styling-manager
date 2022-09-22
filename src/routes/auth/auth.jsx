@@ -1,9 +1,13 @@
 import {
+  browserLocalPersistence,
   GoogleAuthProvider,
+  onAuthStateChanged,
+  setPersistence,
   signInWithEmailAndPassword,
   signInWithPopup,
 } from 'firebase/auth';
 import React from 'react';
+import { useEffect } from 'react';
 import { useState } from 'react';
 import HomeModal from '../../components/modal/homeModal';
 import ModalPortal from '../../components/modal/modalPortal';
@@ -37,11 +41,20 @@ const Auth = ({ isLogin, setIsLogin }) => {
         email,
         password
       );
-      console.log(user.user);
+      setIsLogin(user.user);
     } catch (error) {
       console.log(error.code);
     }
   };
+  useEffect(() => {
+    onAuthStateChanged(authService, (user) => {
+      if (user) {
+        setIsLogin(user);
+      } else {
+        setIsLogin(false);
+      }
+    });
+  }, []);
   return (
     <div>
       <div className={styles.container}>
@@ -90,7 +103,7 @@ const Auth = ({ isLogin, setIsLogin }) => {
             <button
               className={styles.guestLoginButton}
               onClick={() => {
-                setIsLogin(!isLogin);
+                setIsLogin(true);
               }}
             >
               게스트로 입장

@@ -1,8 +1,10 @@
 import React from 'react';
+import { authService } from '../../fbase';
+import { signOut } from 'firebase/auth';
 
 const Logout = () => {
   const onClick = () => {
-    console.log('a');
+    signOut(authService);
   };
   return (
     <>

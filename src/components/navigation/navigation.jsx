@@ -1,9 +1,18 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { authService } from '../../fbase';
 import styles from './navigation.module.css';
 
 const Navigation = ({ isLogin, setIsLogin }) => {
+  console.log(isLogin);
   const navigate = useNavigate();
+
+  const onClick = () => {
+    signOut(authService);
+    setIsLogin(false);
+    navigate('/');
+  };
   return (
     <nav className={styles.navigationBar}>
       <Link to='/'>
@@ -25,13 +34,8 @@ const Navigation = ({ isLogin, setIsLogin }) => {
         <li>
           <Link to='/gridManager'>grid</Link>
         </li>
-        <li
-          onClick={() => {
-            setIsLogin(!isLogin);
-            navigate('/');
-          }}
-        >
-          <a>{isLogin ? 'Logout' : 'Go auth page'}</a>
+        <li onClick={onClick}>
+          <p>{isLogin.uid ? 'Logout' : 'Go auth page'}</p>
         </li>
       </ul>
     </nav>
