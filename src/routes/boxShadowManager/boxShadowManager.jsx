@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import BoxShadowSampleList from '../../components/BoxShadowSampleList/BoxShadowSampleList';
-import Navigation from '../../components/navigation/navigation';
 import styles from './boxShadowManager.module.css';
 import common from '../../common/common.module.css';
 import hexToRgb from '../../components/hexToRgb/hexToRgb';
@@ -53,7 +52,6 @@ const BoxShadowManager = () => {
   }, [changedValue]);
   return (
     <>
-      <Navigation />
       <section className={styles.container}>
         <p className={common.title}>Box Shadow Manager</p>
         <div className={styles.stateInfoArea}>

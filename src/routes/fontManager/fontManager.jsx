@@ -1,5 +1,4 @@
 import React from 'react';
-import Navigation from '../../components/navigation/navigation';
 import styles from './fontManager.module.css';
 import common from '../../common/common.module.css';
 import { useState } from 'react';
@@ -62,7 +61,6 @@ const FontManager = () => {
   }, [changedValue]);
   return (
     <>
-      <Navigation />
       <section className={styles.container}>
         <p className={common.title}>Font Manager</p>
         <div className={styles.stateInfoArea}>

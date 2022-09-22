@@ -1,5 +1,4 @@
 import React from 'react';
-import Navigation from '../../components/navigation/navigation';
 import AlignContent from './alignContent/alignContent';
 import AlignItems from './alignItems/alignItems';
 import FlexDirection from './flexDirection/flexDirection';
@@ -11,7 +10,6 @@ import JustifyContent from './justifyContent/justifyContent';
 const FlexManager = () => {
   return (
     <>
-      <Navigation />
       <section className={styles.container}>
         <p className={common.title}>Flex Manager</p>
         <FlexWrap />

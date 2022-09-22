@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styles from './homeModal.module.css';
 import { authService } from '../../fbase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { useEffect } from 'react';
 
 const HomeModal = ({ openModal, setOpenModal }) => {
   const [email, setEmail] = useState('');
@@ -13,20 +14,18 @@ const HomeModal = ({ openModal, setOpenModal }) => {
     } else if (e.target.name === 'password') {
       setPassword(e.target.value);
     }
-    console.log(email, password);
   };
-  const onSubmit = async (e) => {
+  useEffect(() => {
+    console.log(email);
+    console.log(password);
+  }, [email, password]);
+  const onSubmit = (e) => {
     e.preventDefault();
-    try {
-      const data = await createUserWithEmailAndPassword(
-        authService,
-        email,
-        password
-      );
-      console.log(data);
-    } catch (error) {
-      console.log(error);
-    }
+    createUserWithEmailAndPassword(authService, email, password).then(
+      (userId) => {
+        const user = userId.user;
+      }
+    );
   };
   const onClick = async (e) => {
     if (e.target.id === 'modalClose') {
@@ -45,8 +44,8 @@ const HomeModal = ({ openModal, setOpenModal }) => {
           X
         </button>
         <p className={styles.title}>회원가입</p>
-        <form className={styles.signForm}>
-          <input required type='text' placeholder='이름' onSubmit={onSubmit} />
+        <form className={styles.signForm} onSubmit={onSubmit}>
+          <input required type='text' placeholder='이름' />
           <input
             required
             type='email'

@@ -1,11 +1,10 @@
 import styles from './home.module.css';
-import React, { useState } from 'react';
 import Navigation from '../../components/navigation/navigation';
 
-const Home = () => {
+const Home = ({ isLogin, setIsLogin }) => {
   return (
     <>
-      <Navigation />
+      <Navigation isLogin={isLogin} setIsLogin={setIsLogin} />
       <div className={styles.wrapper}>Styling Manager</div>
     </>
   );

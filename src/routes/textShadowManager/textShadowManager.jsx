@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Navigation from '../../components/navigation/navigation';
 import styles from './textShadowManager.module.css';
 import common from '../../common/common.module.css';
 import hexToRgb from '../../components/hexToRgb/hexToRgb';
@@ -47,16 +46,15 @@ const TextShadowManager = () => {
     inputValue.rgba,
   ]);
 
-  useEffect(() => {
-    // mount, unmount
-    console.log('mound');
-    return () => {
-      console.log('unmount');
-    };
-  }, []);
+  // useEffect(() => {
+  //   // mount, unmount
+  //   console.log('mound');
+  //   return () => {
+  //     console.log('unmount');
+  //   };
+  // }, []);
   return (
     <>
-      <Navigation />
       <section className={styles.container}>
         <p className={common.title}>Text Shadow Manager</p>
         <div className={styles.stateInfoArea}>

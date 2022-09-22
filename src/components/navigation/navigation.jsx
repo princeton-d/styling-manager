@@ -1,32 +1,37 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import Logout from '../logout/logout';
+import { Link, useNavigate } from 'react-router-dom';
 import styles from './navigation.module.css';
 
-const Navigation = () => {
+const Navigation = ({ isLogin, setIsLogin }) => {
+  const navigate = useNavigate();
   return (
     <nav className={styles.navigationBar}>
-      <Link to='/home'>
+      <Link to='/'>
         <p className={styles.home}>Styling Manager</p>
       </Link>
       <ul className={styles.menu}>
         <li>
-          <Link to='/home/boxShadowManager'>box Shadow</Link>
+          <Link to='/boxShadowManager'>box Shadow</Link>
         </li>
         <li>
-          <Link to='/home/textShadowManager'>text Shadow</Link>
+          <Link to='/textShadowManager'>text Shadow</Link>
         </li>
         <li>
-          <Link to='/home/fontManager'>font</Link>
+          <Link to='/fontManager'>font</Link>
         </li>
         <li>
-          <Link to='/home/flexManager'>flex</Link>
+          <Link to='/flexManager'>flex</Link>
         </li>
         <li>
-          <Link to='/home/gridManager'>grid</Link>
+          <Link to='/gridManager'>grid</Link>
         </li>
-        <li>
-          <Link to='/'>Go auth page</Link>
+        <li
+          onClick={() => {
+            setIsLogin(!isLogin);
+            navigate('/');
+          }}
+        >
+          <a>{isLogin ? 'Logout' : 'Go auth page'}</a>
         </li>
       </ul>
     </nav>

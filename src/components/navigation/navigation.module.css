@@ -19,6 +19,7 @@
 
 .menu li a {
   display: block;
+  cursor: pointer;
   height: 4rem;
   text-align: center;
   font-size: 1.4rem;

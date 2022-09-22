@@ -1,8 +1,10 @@
-import { async } from '@firebase/util';
-import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import {
+  GoogleAuthProvider,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+} from 'firebase/auth';
 import React from 'react';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import HomeModal from '../../components/modal/homeModal';
 import ModalPortal from '../../components/modal/modalPortal';
 import { authService } from '../../fbase';
@@ -10,14 +12,35 @@ import styles from './auth.module.css';
 
 const Auth = ({ isLogin, setIsLogin }) => {
   const [openModal, setOpenModal] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
+  const onChange = (e) => {
+    if (e.target.name === 'email') {
+      setEmail(e.target.value);
+    } else if (e.target.name === 'password') {
+      setPassword(e.target.value);
+    }
+  };
   const onSignUpModal = () => {
     setOpenModal(!openModal);
   };
   const onSocialClick = async (e) => {
     const provider = new GoogleAuthProvider();
     const data = await signInWithPopup(authService, provider);
-    console.log(data);
+  };
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const user = await signInWithEmailAndPassword(
+        authService,
+        email,
+        password
+      );
+      console.log(user.user);
+    } catch (error) {
+      console.log(error.code);
+    }
   };
   return (
     <div>
@@ -27,13 +50,20 @@ const Auth = ({ isLogin, setIsLogin }) => {
             <span className={styles.logo}>WS</span>
           </div>
           <div className={styles.title}>Styling Manager</div>
-          <form className={styles.loginForm}>
-            <input name='email' type='text' required placeholder='email' />
+          <form className={styles.loginForm} onSubmit={onSubmit}>
+            <input
+              name='email'
+              type='text'
+              required
+              placeholder='email'
+              onChange={onChange}
+            />
             <input
               name='password'
               type='password'
               required
               placeholder='password'
+              onChange={onChange}
             />
             <div className={styles.signUp}>
               <span onClick={onSignUpModal}>회원등록</span>
@@ -57,9 +87,14 @@ const Auth = ({ isLogin, setIsLogin }) => {
               <span className={styles.googleLogo}>logo</span>
               구글로 로그인
             </button>
-            <Link to='/home'>
-              <button className={styles.guestLoginButton}>게스트로 입장</button>
-            </Link>
+            <button
+              className={styles.guestLoginButton}
+              onClick={() => {
+                setIsLogin(!isLogin);
+              }}
+            >
+              게스트로 입장
+            </button>
           </div>
         </div>
       </div>
