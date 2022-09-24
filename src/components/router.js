@@ -14,11 +14,11 @@ const AppRouter = ({ isLogin, setIsLogin }) => {
       {isLogin && <Navigation isLogin={isLogin} setIsLogin={setIsLogin} />}
       <Routes>
         {isLogin ? <Route path='/' element={<Home isLogin={isLogin} setIsLogin={setIsLogin} />} /> : <Route path='/' element={<Auth isLogin={isLogin} setIsLogin={setIsLogin} />} />}
-        <Route path='/boxShadowManager' element={<BoxShadowManager />} />
-        <Route path='/textShadowManager' element={<TextShadowManager />} />
-        <Route path='/fontManager' element={<FontManager />} />
-        <Route path='/flexManager' element={<FlexManager />} />
-        <Route path='/gridManager' element={<GirdManager />} />
+        <Route path='/boxShadowManager' element={<BoxShadowManager isLogin={isLogin} setIsLogin={setIsLogin} />} />
+        <Route path='/textShadowManager' element={<TextShadowManager isLogin={isLogin} setIsLogin={setIsLogin} />} />
+        <Route path='/fontManager' element={<FontManager isLogin={isLogin} setIsLogin={setIsLogin} />} />
+        <Route path='/flexManager' element={<FlexManager isLogin={isLogin} setIsLogin={setIsLogin} />} />
+        <Route path='/gridManager' element={<GirdManager isLogin={isLogin} setIsLogin={setIsLogin} />} />
       </Routes>
     </Router>
   )

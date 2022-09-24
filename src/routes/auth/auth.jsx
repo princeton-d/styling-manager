@@ -5,6 +5,7 @@ import {
   setPersistence,
   signInWithEmailAndPassword,
   signInWithPopup,
+  signInAnonymously,
 } from 'firebase/auth';
 import React from 'react';
 import { useEffect } from 'react';
@@ -46,6 +47,7 @@ const Auth = ({ isLogin, setIsLogin }) => {
       console.log(error.code);
     }
   };
+  // 유저 상태 감지
   useEffect(() => {
     onAuthStateChanged(authService, (user) => {
       if (user) {
@@ -55,6 +57,15 @@ const Auth = ({ isLogin, setIsLogin }) => {
       }
     });
   }, []);
+
+  // 익명 게스트로 로그인
+  const onClick = async () => {
+    try {
+      const user = await signInAnonymously(authService);
+    } catch (error) {
+      console.log(error.code);
+    }
+  };
   return (
     <div>
       <div className={styles.container}>
@@ -100,12 +111,7 @@ const Auth = ({ isLogin, setIsLogin }) => {
               <span className={styles.googleLogo}>logo</span>
               구글로 로그인
             </button>
-            <button
-              className={styles.guestLoginButton}
-              onClick={() => {
-                setIsLogin(true);
-              }}
-            >
+            <button className={styles.guestLoginButton} onClick={onClick}>
               게스트로 입장
             </button>
           </div>
