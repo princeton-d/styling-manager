@@ -6,9 +6,8 @@ import TextShadowSampleList from '../../components/textShadowSampleList/textShad
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { useEffect } from 'react';
 import { useRef } from 'react';
-import OnAuthStateChanged from '../../components/logout/AuthStateChanged/OnAuthStateChanged';
 
-const TextShadowManager = ({ isLogin, setIsLogin }) => {
+const TextShadowManager = () => {
   const resultTextRef = useRef();
   const [inputValue, setInputValue] = useState({
     shiftRight: 2,
@@ -54,7 +53,6 @@ const TextShadowManager = ({ isLogin, setIsLogin }) => {
   // }, []);
   return (
     <>
-      <OnAuthStateChanged setIsLogin={setIsLogin} />
       <section className={styles.container}>
         <p className={common.title}>Text Shadow Manager</p>
         <div className={styles.stateInfoArea}>

@@ -5,9 +5,8 @@ import { useState } from 'react';
 import { useRef } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { useEffect } from 'react';
-import OnAuthStateChanged from '../../components/logout/AuthStateChanged/OnAuthStateChanged';
 
-const FontManager = ({ isLogin, setIsLogin }) => {
+const FontManager = () => {
   const fontSizeRef = useRef();
   const letterSpacingRef = useRef();
   const wordSpacingRef = useRef();
@@ -62,7 +61,6 @@ const FontManager = ({ isLogin, setIsLogin }) => {
   }, [changedValue]);
   return (
     <>
-      <OnAuthStateChanged setIsLogin={setIsLogin} />
       <section className={styles.container}>
         <p className={common.title}>Font Manager</p>
         <div className={styles.stateInfoArea}>

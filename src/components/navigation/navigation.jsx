@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { authService } from '../../fbase';
 import styles from './navigation.module.css';
 
-const Navigation = ({ isLogin, setIsLogin }) => {
+const Navigation = ({ setIsLogin }) => {
   const navigate = useNavigate();
 
   const onClick = () => {

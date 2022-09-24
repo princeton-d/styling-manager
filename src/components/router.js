@@ -8,17 +8,17 @@ import FlexManager from '../routes/flexManager/flexManager';
 import Home from '../routes/home/home';
 import Navigation from './navigation/navigation';
 
-const AppRouter = ({ isLogin, setIsLogin }) => {
+const AppRouter = ({ isLogin, setIsLogin, userInfo }) => {
   return (
     <Router basename='styling-manager'>
-      {isLogin && <Navigation isLogin={isLogin} setIsLogin={setIsLogin} />}
+      {isLogin && <Navigation setIsLogin={setIsLogin} />}
       <Routes>
-        {isLogin ? <Route path='/' element={<Home isLogin={isLogin} setIsLogin={setIsLogin} />} /> : <Route path='/' element={<Auth isLogin={isLogin} setIsLogin={setIsLogin} />} />}
-        <Route path='/boxShadowManager' element={<BoxShadowManager isLogin={isLogin} setIsLogin={setIsLogin} />} />
-        <Route path='/textShadowManager' element={<TextShadowManager isLogin={isLogin} setIsLogin={setIsLogin} />} />
-        <Route path='/fontManager' element={<FontManager isLogin={isLogin} setIsLogin={setIsLogin} />} />
-        <Route path='/flexManager' element={<FlexManager isLogin={isLogin} setIsLogin={setIsLogin} />} />
-        <Route path='/gridManager' element={<GirdManager isLogin={isLogin} setIsLogin={setIsLogin} />} />
+        {isLogin ? <Route path='/' element={<Home />} /> : <Route path='/' element={<Auth />} />}
+        <Route path='/boxShadowManager' element={<BoxShadowManager />} />
+        <Route path='/textShadowManager' element={<TextShadowManager />} />
+        <Route path='/fontManager' element={<FontManager />} />
+        <Route path='/flexManager' element={<FlexManager />} />
+        <Route path='/gridManager' element={<GirdManager />} />
       </Routes>
     </Router>
   )

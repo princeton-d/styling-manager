@@ -4,9 +4,8 @@ import styles from './boxShadowManager.module.css';
 import common from '../../common/common.module.css';
 import hexToRgb from '../../components/hexToRgb/hexToRgb';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import OnAuthStateChanged from '../../components/logout/AuthStateChanged/OnAuthStateChanged';
 
-const BoxShadowManager = ({ isLogin, setIsLogin }) => {
+const BoxShadowManager = () => {
   const shiftRightRef = useRef();
   const shiftDownRef = useRef();
   const spreadRef = useRef();
@@ -53,7 +52,6 @@ const BoxShadowManager = ({ isLogin, setIsLogin }) => {
   }, [changedValue]);
   return (
     <>
-      <OnAuthStateChanged setIsLogin={setIsLogin} />
       <section className={styles.container}>
         <p className={common.title}>Box Shadow Manager</p>
         <div className={styles.stateInfoArea}>
