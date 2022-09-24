@@ -1,8 +1,6 @@
 import {
-  browserLocalPersistence,
   GoogleAuthProvider,
   onAuthStateChanged,
-  setPersistence,
   signInWithEmailAndPassword,
   signInWithPopup,
   signInAnonymously,

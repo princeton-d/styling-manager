@@ -4,8 +4,6 @@ import styles from './boxShadowManager.module.css';
 import common from '../../common/common.module.css';
 import hexToRgb from '../../components/hexToRgb/hexToRgb';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import { onAuthStateChanged } from 'firebase/auth';
-import { authService } from '../../fbase';
 import OnAuthStateChanged from '../../components/logout/AuthStateChanged/OnAuthStateChanged';
 
 const BoxShadowManager = ({ isLogin, setIsLogin }) => {
