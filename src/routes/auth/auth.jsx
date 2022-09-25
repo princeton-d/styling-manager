@@ -45,16 +45,6 @@ const Auth = ({ isLogin, setIsLogin }) => {
       console.log(error.code);
     }
   };
-  // 유저 상태 감지
-  useEffect(() => {
-    onAuthStateChanged(authService, (user) => {
-      if (user) {
-        setIsLogin(user);
-      } else {
-        setIsLogin(false);
-      }
-    });
-  }, []);
 
   // 익명 게스트로 로그인
   const onClick = async () => {

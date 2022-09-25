@@ -9,6 +9,7 @@ const App = () => {
   const [pageLoading, setPageLoading] = useState(false);
   const [userInfo, setUserInfo] = useState(null);
 
+  // 유저 정보 변화 감지(로그인, 로그아웃)
   useEffect(() => {
     onAuthStateChanged(authService, (user) => {
       if (user) {

@@ -1,26 +1,21 @@
 import styles from './home.module.css';
 import Navigation from '../../components/navigation/navigation';
 import { dbService } from '../../fbase';
-import { addDoc, collection, getDocs } from 'firebase/firestore';
+import { addDoc, collection, onSnapshot } from 'firebase/firestore';
 import { useState, useEffect } from 'react';
 
-const Home = () => {
+const Home = ({ userInfo }) => {
   const [styling, setStyling] = useState('');
   const [stylings, setStylings] = useState([]);
 
-  const getStylings = async () => {
-    const querySnapshot = await getDocs(collection(dbService, 'styling'));
-    querySnapshot.forEach((doc) => {
-      const stylingObj = {
-        ...doc.data(),
-        id: doc.id,
-      };
-      setStylings((prev) => [stylingObj, ...prev]);
-    });
-  };
-
   useEffect(() => {
-    getStylings();
+    onSnapshot(collection(dbService, 'styling'), (snapshot) => {
+      const stylingArr = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setStylings(stylingArr);
+    });
   }, []);
 
   const onSubmit = async (e) => {
@@ -29,6 +24,7 @@ const Home = () => {
       const docRef = await addDoc(collection(dbService, 'styling'), {
         text: styling,
         createdAt: Date.now(),
+        creatorId: userInfo.uid,
       });
       setStyling('');
     } catch (error) {
@@ -36,7 +32,6 @@ const Home = () => {
     }
   };
   const onChange = (e) => {
-    e.preventDefault();
     setStyling(e.target.value);
   };
   return (
@@ -52,9 +47,13 @@ const Home = () => {
           />
           <input type='submit' onSubmit={onSubmit} />
         </form>
-        {stylings.map((prop) => (
-          <div key={prop.id}>{prop.text}</div>
-        ))}
+        <div>
+          {stylings.map((prop) => (
+            <div key={prop.id}>
+              <h4>{prop.text}</h4>
+            </div>
+          ))}
+        </div>
       </div>
     </>
   );

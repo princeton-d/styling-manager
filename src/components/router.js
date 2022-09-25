@@ -13,7 +13,7 @@ const AppRouter = ({ isLogin, setIsLogin, userInfo }) => {
     <Router basename='styling-manager'>
       {isLogin && <Navigation setIsLogin={setIsLogin} />}
       <Routes>
-        {isLogin ? <Route path='/' element={<Home />} /> : <Route path='/' element={<Auth />} />}
+        {isLogin ? <Route path='/' element={<Home userInfo={userInfo} />} /> : <Route path='/' element={<Auth />} />}
         <Route path='/boxShadowManager' element={<BoxShadowManager />} />
         <Route path='/textShadowManager' element={<TextShadowManager />} />
         <Route path='/fontManager' element={<FontManager />} />
