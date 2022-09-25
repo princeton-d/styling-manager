@@ -4,6 +4,11 @@ import styles from './boxShadowManager.module.css';
 import common from '../../common/common.module.css';
 import hexToRgb from '../../components/hexToRgb/hexToRgb';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import CustomStyleCode from '../../components/CustomStyleCode/CustomStyleCode';
+import SaveTheCustomButton from '../../components/SaveTheCustomButton/SaveTheCustomButton';
+import { addDoc, collection } from 'firebase/firestore';
+import { dbService } from '../../fbase';
+import { getAdditionalUserInfo } from 'firebase/auth';
 
 const BoxShadowManager = () => {
   const shiftRightRef = useRef();
@@ -166,6 +171,8 @@ const BoxShadowManager = () => {
             <p>contents</p>
           </div>
         </div>
+        <SaveTheCustomButton />
+        <CustomStyleCode />
         <BoxShadowSampleList />
       </section>
     </>

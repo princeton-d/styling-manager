@@ -1,5 +1,4 @@
 import styles from './home.module.css';
-import Navigation from '../../components/navigation/navigation';
 import { dbService } from '../../fbase';
 import { addDoc, collection, onSnapshot } from 'firebase/firestore';
 import { useState, useEffect } from 'react';
