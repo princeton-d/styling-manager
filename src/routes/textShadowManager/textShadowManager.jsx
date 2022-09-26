@@ -167,12 +167,11 @@ const TextShadowManager = ({ userInfo }) => {
           </div>
           <div
             className={styles.textShadowInfo}
-            onClick={(e) => {
-              e.target.innerText = 'Copy';
-              setTimeout(() => {
-                e.target.innerText = `${inputValue.shiftRight}px ${inputValue.shiftDown}px ${inputValue.blur}px ${inputValue.rgba}
-                Click To Copy`;
-              }, 1000);
+            onMouseDown={(e) => {
+              e.target.style.scale = '0.9';
+            }}
+            onMouseUp={(e) => {
+              e.target.style.scale = '1';
             }}
           >
             <CopyToClipboard

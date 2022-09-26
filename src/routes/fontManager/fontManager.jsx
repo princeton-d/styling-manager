@@ -5,6 +5,10 @@ import { useState } from 'react';
 import { useRef } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { useEffect } from 'react';
+import { addDoc, collection, onSnapshot } from 'firebase/firestore';
+import { dbService } from '../../fbase';
+import SaveTheCustomButton from '../../components/SaveTheCustomButton/SaveTheCustomButton';
+import FontCustomStyleCode from '../../components/FontCustomStyleCode/FontCustomStyleCode';
 
 const FontManager = ({ userInfo }) => {
   const fontRef = useRef();
@@ -16,6 +20,7 @@ const FontManager = ({ userInfo }) => {
     textDecoration: '1',
     colorPalette: '#000000',
   });
+  const [fontStyles, setFontStyles] = useState([]);
 
   const changedValue = (e) => {
     const key = e.target.name;
@@ -50,6 +55,34 @@ const FontManager = ({ userInfo }) => {
     inputValue.textDecoration,
     inputValue.colorPalette,
   ]);
+
+  useEffect(() => {
+    onSnapshot(collection(dbService, 'fontData'), (snapshot) => {
+      const styleArr = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setFontStyles(styleArr);
+    });
+  }, []);
+  const onClick = async () => {
+    await addDoc(collection(dbService, 'fontData'), {
+      style: `font-size: ${inputValue.fontSize}px;
+      letter-spacing: ${inputValue.letterSpacing / 10}px;
+      word-spacing: ${inputValue.wordSpacing / 10}px;
+      font-weight: ${inputValue.fontWeight * 100};
+      text-decoration: ${printText()};
+      color: ${inputValue.colorPalette};`,
+      fontSize: `${inputValue.fontSize}px`,
+      letterSpacing: `${inputValue.letterSpacing / 10}px`,
+      wordSpacing: `${inputValue.wordSpacing / 10}px`,
+      fontWeight: `${inputValue.fontWeight * 100}`,
+      textDecoration: `${printText()}`,
+      color: `${inputValue.colorPalette}`,
+      createdAt: Date.now(),
+      creatorId: userInfo.uid,
+    });
+  };
   return (
     <>
       <section className={styles.container}>
@@ -138,7 +171,15 @@ const FontManager = ({ userInfo }) => {
               <br />- 넬슨 만델라
             </p>
           </div>
-          <div className={styles.fontInfo}>
+          <div
+            className={styles.fontInfo}
+            onMouseDown={(e) => {
+              e.target.style.scale = '0.9';
+            }}
+            onMouseUp={(e) => {
+              e.target.style.scale = '1';
+            }}
+          >
             <CopyToClipboard
               text={`font-size: ${inputValue.fontSize}px;
 letter-spacing: ${inputValue.letterSpacing}px;
@@ -147,15 +188,7 @@ font-weight: ${inputValue.fontWeight * 100};
 text-decoration: ${printText()};
 color: ${inputValue.colorPalette};`}
             >
-              <p
-                className={styles.fontCssInfo}
-                onClick={(e) => {
-                  e.target.innerText = 'Copy';
-                  setTimeout(() => {
-                    e.target.innerText = 'Click To Copy';
-                  }, 1000);
-                }}
-              >
+              <p className={styles.fontCssInfo}>
                 font-size: {inputValue.fontSize}px;
                 <br />
                 letter-spacing: {inputValue.letterSpacing / 10}px;
@@ -166,13 +199,15 @@ color: ${inputValue.colorPalette};`}
                 <br />
                 text-decoration: {printText()};
                 <br />
-                color: {inputValue.colorPalette}
+                color: {inputValue.colorPalette};
                 <br />
                 Click To Copy
               </p>
             </CopyToClipboard>
           </div>
         </div>
+        <SaveTheCustomButton onClick={onClick} />
+        <FontCustomStyleCode fontStyles={fontStyles} userInfo={userInfo} />
       </section>
     </>
   );

@@ -166,11 +166,11 @@ const BoxShadowManager = ({ userInfo }) => {
           </div>
           <div
             className={styles.boxShadowInfo}
-            onClick={(e) => {
-              e.target.innerText = 'Copy';
-              setTimeout(() => {
-                e.target.innerText = 'Click To Copy';
-              }, 1000);
+            onMouseDown={(e) => {
+              e.target.style.scale = '0.9';
+            }}
+            onMouseUp={(e) => {
+              e.target.style.scale = '1';
             }}
           >
             <CopyToClipboard
