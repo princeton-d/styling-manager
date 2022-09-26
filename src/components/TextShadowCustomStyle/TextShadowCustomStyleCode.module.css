@@ -1,0 +1,47 @@
+.contentsArea {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.contentsBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 35rem;
+  border: 2px solid #000;
+  border-radius: 8px;
+  margin: 0.4rem;
+  padding: 1rem;
+}
+
+.leftContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.styleCode {
+  margin: 0.5rem;
+}
+
+.buttonArea {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.buttonArea button {
+  height: 2rem;
+  margin: 0.5rem;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 9rem;
+  height: 6rem;
+  margin: 1rem 1.5rem;
+  font-size: 2rem;
+  font-weight: 900;
+  background-color: gray;
+}

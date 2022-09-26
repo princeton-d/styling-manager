@@ -2,22 +2,22 @@ import { deleteDoc, doc } from 'firebase/firestore';
 import React from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import { dbService } from '../../fbase';
-import styles from './BoxShadowCustomStyleCode.module.css';
+import styles from './TextShadowCustomStyleCode.module.css';
 
-const BoxShadowCustomStyleCode = ({ boxShadowStyles, userInfo }) => {
+const TextShadowCustomStyleCode = ({ textShadowStyles, userInfo }) => {
   return (
     <>
       <div className={styles.container}>
         <h2 className={styles.title}>Custom Style Code</h2>
         <div className={styles.contentsArea}>
-          {boxShadowStyles.map((prop) => {
+          {textShadowStyles.map((prop) => {
             const isOwner = userInfo.uid === prop.creatorId;
             const onDeleteButton = async () => {
               const isOk = window.confirm(
                 'Are you sure you want to delete the confirm style code?'
               );
               if (isOk) {
-                await deleteDoc(doc(dbService, 'boxShadowData', `${prop.id}`));
+                await deleteDoc(doc(dbService, 'textShadowData', `${prop.id}`));
               }
             };
             return (
@@ -36,7 +36,7 @@ const BoxShadowCustomStyleCode = ({ boxShadowStyles, userInfo }) => {
                   </div>
                   <div
                     className={styles.content}
-                    style={{ boxShadow: prop.styleCode }}
+                    style={{ textShadow: prop.styleCode }}
                   >
                     Content
                   </div>
@@ -50,4 +50,4 @@ const BoxShadowCustomStyleCode = ({ boxShadowStyles, userInfo }) => {
   );
 };
 
-export default BoxShadowCustomStyleCode;
+export default TextShadowCustomStyleCode;

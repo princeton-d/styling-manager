@@ -6,121 +6,107 @@ import { useRef } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { useEffect } from 'react';
 
-const FontManager = () => {
-  const fontSizeRef = useRef();
-  const letterSpacingRef = useRef();
-  const wordSpacingRef = useRef();
-  const fontWeightRef = useRef();
-  const textDecorationRef = useRef();
-  const colorPaletteRef = useRef();
-  const copyTextRef = useRef();
+const FontManager = ({ userInfo }) => {
   const fontRef = useRef();
-
-  const [fontSizeValue, setFontSizeValue] = useState(25);
-  const [letterSpacingValue, setLetterSpacingValue] = useState(0);
-  const [wordSpacingValue, setWordSpacingValue] = useState(0);
-  const [fontWeightValue, setFontWeightValue] = useState(4);
-  const [textDecorationValue, setTextDecorationValue] = useState('1');
-  const [colorPaletteValue, setColorPaletteValue] = useState('#000000');
+  const [inputValue, setInputValue] = useState({
+    fontSize: 25,
+    letterSpacing: 0,
+    wordSpacing: 0,
+    fontWeight: 4,
+    textDecoration: '1',
+    colorPalette: '#000000',
+  });
 
   const changedValue = (e) => {
-    if (e.target.name === 'fontSize') {
-      setFontSizeValue(fontSizeRef.current.value);
-    } else if (e.target.name === 'letterSpacing') {
-      setLetterSpacingValue(letterSpacingRef.current.value);
-    } else if (e.target.name === 'wordSpacing') {
-      setWordSpacingValue(wordSpacingRef.current.value);
-    } else if (e.target.name === 'fontWeight') {
-      setFontWeightValue(fontWeightRef.current.value);
-    } else if (e.target.name === 'textDecoration') {
-      setTextDecorationValue(textDecorationRef.current.value);
-    } else if (e.target.name === 'colorBox') {
-      setColorPaletteValue(colorPaletteRef.current.value);
-    }
+    const key = e.target.name;
+    setInputValue((prev) => ({ ...prev, [key]: e.target.value }));
   };
 
   const printText = () => {
-    if (textDecorationValue === '1') {
+    if (inputValue.textDecoration === '1') {
       return 'none';
-    } else if (textDecorationValue === '2') {
+    } else if (inputValue.textDecoration === '2') {
       return 'underline';
-    } else if (textDecorationValue === '3') {
+    } else if (inputValue.textDecoration === '3') {
       return 'overline';
-    } else if (textDecorationValue === '4') {
+    } else if (inputValue.textDecoration === '4') {
       return 'line-through';
     }
   };
 
   useEffect(() => {
-    fontRef.current.style.fontSize = `${fontSizeValue}px`;
-    fontRef.current.style.letterSpacing = `${letterSpacingValue / 10}px`;
-    fontRef.current.style.wordSpacing = `${wordSpacingValue / 10}px`;
-    fontRef.current.style.fontWeight = fontWeightValue * 100;
+    setInputValue((prev) => ({ ...prev }));
+    fontRef.current.style.fontSize = `${inputValue.fontSize}px`;
+    fontRef.current.style.letterSpacing = `${inputValue.letterSpacing / 10}px`;
+    fontRef.current.style.wordSpacing = `${inputValue.wordSpacing / 10}px`;
+    fontRef.current.style.fontWeight = inputValue.fontWeight * 100;
     fontRef.current.style.textDecoration = printText();
-    fontRef.current.style.color = colorPaletteValue;
-  }, [changedValue]);
+    fontRef.current.style.color = inputValue.colorPalette;
+  }, [
+    inputValue.fontSize,
+    inputValue.letterSpacing,
+    inputValue.wordSpacing,
+    inputValue.fontWeight,
+    inputValue.textDecoration,
+    inputValue.colorPalette,
+  ]);
   return (
     <>
       <section className={styles.container}>
         <p className={common.title}>Font Manager</p>
         <div className={styles.stateInfoArea}>
           <div className={styles.fontSizeArea}>
-            <span>Font Size: {fontSizeValue}</span>
+            <span>Font Size: {inputValue.fontSize}</span>
             <input
-              ref={fontSizeRef}
               type='range'
               name='fontSize'
               min='1'
               max='50'
-              value={fontSizeValue}
+              value={inputValue.fontSize}
               onChange={changedValue}
             />
           </div>
           <div className={styles.letterSpacingArea}>
-            <span>Letter Spacing: {letterSpacingValue / 10}</span>
+            <span>Letter Spacing: {inputValue.letterSpacing / 10}</span>
             <input
-              ref={letterSpacingRef}
               type='range'
               name='letterSpacing'
               min='-100'
               max='200'
-              value={letterSpacingValue}
+              value={inputValue.letterSpacing}
               onChange={changedValue}
             />
           </div>
           <div className={styles.wordSpacingArea}>
-            <span>Word Spacing: {wordSpacingValue / 10}</span>
+            <span>Word Spacing: {inputValue.wordSpacing / 10}</span>
             <input
-              ref={wordSpacingRef}
               type='range'
               name='wordSpacing'
               min='-400'
               max='200'
-              value={wordSpacingValue}
+              value={inputValue.wordSpacing}
               onChange={changedValue}
             />
           </div>
           <div className={styles.fontWeightArea}>
-            <span>Font Weight: {Number(fontWeightValue) * 100}</span>
+            <span>Font Weight: {Number(inputValue.fontWeight) * 100}</span>
             <input
-              ref={fontWeightRef}
               type='range'
               name='fontWeight'
               min='1'
               max='9'
-              value={fontWeightValue}
+              value={inputValue.fontWeight}
               onChange={changedValue}
             />
           </div>
           <div className={styles.textDecorationArea}>
             <span>Text Decoration: {printText()}</span>
             <input
-              ref={textDecorationRef}
               type='range'
               name='textDecoration'
               min='1'
               max='4'
-              value={textDecorationValue}
+              value={inputValue.textDecoration}
               onChange={changedValue}
             />
           </div>
@@ -130,12 +116,11 @@ const FontManager = () => {
                 color
               </label>
               <input
-                ref={colorPaletteRef}
                 className={styles.colorBox}
                 id='colorInput'
                 type='color'
-                name='colorBox'
-                value={colorPaletteValue}
+                name='colorPalette'
+                value={inputValue.colorPalette}
                 onChange={changedValue}
               />
             </div>
@@ -155,35 +140,35 @@ const FontManager = () => {
           </div>
           <div className={styles.fontInfo}>
             <CopyToClipboard
-              text={`font-size: ${fontSizeValue}px;
-letter-spacing: ${letterSpacingValue}px;
-word-spacing: ${wordSpacingValue}px;
-font-weight: ${fontWeightValue * 100};
+              text={`font-size: ${inputValue.fontSize}px;
+letter-spacing: ${inputValue.letterSpacing}px;
+word-spacing: ${inputValue.wordSpacing}px;
+font-weight: ${inputValue.fontWeight * 100};
 text-decoration: ${printText()};
-color: ${colorPaletteValue};`}
+color: ${inputValue.colorPalette};`}
             >
               <p
                 className={styles.fontCssInfo}
-                onClick={() => {
-                  copyTextRef.current.innerText = 'Copy';
+                onClick={(e) => {
+                  e.target.innerText = 'Copy';
                   setTimeout(() => {
-                    copyTextRef.current.innerText = 'Click To Copy';
+                    e.target.innerText = 'Click To Copy';
                   }, 1000);
                 }}
               >
-                font-size: {fontSizeValue}px;
+                font-size: {inputValue.fontSize}px;
                 <br />
-                letter-spacing: {letterSpacingValue / 10}px;
+                letter-spacing: {inputValue.letterSpacing / 10}px;
                 <br />
-                word-spacing: {wordSpacingValue / 10}px;
+                word-spacing: {inputValue.wordSpacing / 10}px;
                 <br />
-                font-weight: {fontWeightValue}00;
+                font-weight: {inputValue.fontWeight}00;
                 <br />
                 text-decoration: {printText()};
                 <br />
-                color: {colorPaletteValue}
+                color: {inputValue.colorPalette}
                 <br />
-                <span ref={copyTextRef}>Click To Copy</span>
+                Click To Copy
               </p>
             </CopyToClipboard>
           </div>

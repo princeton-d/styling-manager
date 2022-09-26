@@ -6,8 +6,12 @@ import TextShadowSampleList from '../../components/textShadowSampleList/textShad
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { useEffect } from 'react';
 import { useRef } from 'react';
+import SaveTheCustomButton from '../../components/SaveTheCustomButton/SaveTheCustomButton';
+import TextShadowCustomStyleCode from '../../components/TextShadowCustomStyle/TextShadowCustomStyleCode';
+import { addDoc, collection, onSnapshot } from 'firebase/firestore';
+import { dbService } from '../../fbase';
 
-const TextShadowManager = () => {
+const TextShadowManager = ({ userInfo }) => {
   const resultTextRef = useRef();
   const [inputValue, setInputValue] = useState({
     shiftRight: 2,
@@ -19,6 +23,7 @@ const TextShadowManager = () => {
     resultBoxBackgroundColor: '#999999',
     rgba: 'rgba(0, 0, 0, 1)',
   });
+  const [textShadowStyles, setTextShadowStyles] = useState([]);
 
   const changedValue = (e) => {
     const key = e.target.name;
@@ -43,7 +48,23 @@ const TextShadowManager = () => {
     inputValue.resultBoxBackgroundColor,
     inputValue.rgba,
   ]);
-
+  useEffect(() => {
+    onSnapshot(collection(dbService, 'textShadowData'), (snapshot) => {
+      const styleArr = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setTextShadowStyles(styleArr);
+    });
+  }, []);
+  const onClick = async () => {
+    await addDoc(collection(dbService, 'textShadowData'), {
+      style: `text-shadow: ${inputValue.shiftRight}px ${inputValue.shiftDown}px ${inputValue.blur}px ${inputValue.rgba};`,
+      styleCode: `${inputValue.shiftRight}px ${inputValue.shiftDown}px ${inputValue.blur}px ${inputValue.rgba}`,
+      createdAt: Date.now(),
+      creatorId: userInfo.uid,
+    });
+  };
   // useEffect(() => {
   //   // mount, unmount
   //   console.log('mound');
@@ -169,6 +190,11 @@ const TextShadowManager = () => {
             <p>Result Text</p>
           </div>
         </div>
+        <SaveTheCustomButton onClick={onClick} />
+        <TextShadowCustomStyleCode
+          textShadowStyles={textShadowStyles}
+          userInfo={userInfo}
+        />
         <TextShadowSampleList />
       </section>
     </>
