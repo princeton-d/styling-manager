@@ -1,5 +1,7 @@
+import { deleteDoc, doc } from 'firebase/firestore';
 import React from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
+import { dbService } from '../../fbase';
 import styles from './BoxShadowCustomStyleCode.module.css';
 
 const BoxShadowCustomStyleCode = ({ boxShadowStyles, userInfo }) => {
@@ -10,6 +12,14 @@ const BoxShadowCustomStyleCode = ({ boxShadowStyles, userInfo }) => {
         <div className={styles.contentsArea}>
           {boxShadowStyles.map((prop) => {
             const isOwner = userInfo.uid === prop.creatorId;
+            const onDeleteButton = async () => {
+              const isOk = window.confirm(
+                'Are you sure you want to delete the confirm style code?'
+              );
+              if (isOk) {
+                await deleteDoc(doc(dbService, 'boxShadowData', `${prop.id}`));
+              }
+            };
             return (
               isOwner && (
                 <div className={styles.contentsBox} key={prop.id}>
@@ -19,7 +29,9 @@ const BoxShadowCustomStyleCode = ({ boxShadowStyles, userInfo }) => {
                       <CopyToClipboard text={prop.style}>
                         <button>Copy</button>
                       </CopyToClipboard>
-                      <button>Delete style code</button>
+                      <button onClick={onDeleteButton}>
+                        Delete style code
+                      </button>
                     </div>
                   </div>
                   <div
