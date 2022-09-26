@@ -20,7 +20,7 @@ const Home = ({ userInfo }) => {
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      const docRef = await addDoc(collection(dbService, 'styling'), {
+      await addDoc(collection(dbService, 'styling'), {
         text: styling,
         createdAt: Date.now(),
         creatorId: userInfo.uid,

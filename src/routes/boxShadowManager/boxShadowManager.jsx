@@ -6,11 +6,10 @@ import hexToRgb from '../../components/hexToRgb/hexToRgb';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import CustomStyleCode from '../../components/CustomStyleCode/CustomStyleCode';
 import SaveTheCustomButton from '../../components/SaveTheCustomButton/SaveTheCustomButton';
-import { addDoc, collection } from 'firebase/firestore';
+import { addDoc, collection, onSnapshot } from 'firebase/firestore';
 import { dbService } from '../../fbase';
-import { getAdditionalUserInfo } from 'firebase/auth';
 
-const BoxShadowManager = () => {
+const BoxShadowManager = ({ userInfo }) => {
   const shiftRightRef = useRef();
   const shiftDownRef = useRef();
   const spreadRef = useRef();
@@ -28,6 +27,34 @@ const BoxShadowManager = () => {
   const [insetChecked, setInsetChecked] = useState(false);
   const [colorPaletteValue, setColorPaletteValue] = useState('#000000');
   const [rgbaValue, setRgbaValue] = useState('rgba(0, 0, 0, 1)');
+  // const [boxShadowStyle, setBoxShadowStyle] = useState('');
+  const [boxShadowStyles, setBoxShadowStyles] = useState([]);
+
+  useEffect(() => {
+    onSnapshot(collection(dbService, 'boxShadowData'), (snapshot) => {
+      const styleArr = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setBoxShadowStyles(styleArr);
+    });
+  }, []);
+  const onClick = async () => {
+    try {
+      await addDoc(collection(dbService, 'boxShadowData'), {
+        style: `box-shadow: ${shiftRightValue}px ${shiftDownValue}px ${blurValue}px ${spreadValue}px ${rgbaValue}${
+          insetChecked ? 'inset' : ''
+        };`,
+        styleCode: `${shiftRightValue}px ${shiftDownValue}px ${blurValue}px ${spreadValue}px ${rgbaValue}${
+          insetChecked ? 'inset' : ''
+        }`,
+        createdAt: Date.now(),
+        creatorId: userInfo.uid,
+      });
+    } catch (error) {
+      console.log(error.code);
+    }
+  };
 
   const changedValue = (e) => {
     if (e.target.name === 'shiftRight') {
@@ -171,8 +198,8 @@ const BoxShadowManager = () => {
             <p>contents</p>
           </div>
         </div>
-        <SaveTheCustomButton />
-        <CustomStyleCode />
+        <SaveTheCustomButton onClick={onClick} />
+        <CustomStyleCode boxShadowStyles={boxShadowStyles} />
         <BoxShadowSampleList />
       </section>
     </>

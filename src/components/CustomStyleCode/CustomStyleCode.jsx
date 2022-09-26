@@ -1,25 +1,22 @@
 import React from 'react';
 import styles from './CustomStyleCode.module.css';
 
-const CustomStyleCode = () => {
+const CustomStyleCode = ({ boxShadowStyles }) => {
   return (
     <>
       <div className={styles.container}>
         <h2 className={styles.title}>Custom Style Code</h2>
-        <div className={styles.contentsBox}>
-          <p>contents</p>
-          <div className={styles.content}>
-            0<br />
-            Click To Copy
+        {boxShadowStyles.map((prop) => (
+          <div className={styles.contentsBox} key={prop.id}>
+            <p>{prop.style}</p>
+            <div
+              className={styles.content}
+              style={{ boxShadow: prop.styleCode }}
+            >
+              Click To Copy
+            </div>
           </div>
-        </div>
-        <div className={styles.contentsBox}>
-          <p>contents</p>
-          <div className={styles.content}>
-            0<br />
-            Click To Copy
-          </div>
-        </div>
+        ))}
       </div>
     </>
   );
