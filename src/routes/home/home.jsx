@@ -16,7 +16,6 @@ const Home = ({ userInfo }) => {
       setStylings(stylingArr);
     });
   }, []);
-
   const onSubmit = async (e) => {
     e.preventDefault();
     try {

@@ -4,10 +4,10 @@ import styles from './boxShadowManager.module.css';
 import common from '../../common/common.module.css';
 import hexToRgb from '../../components/hexToRgb/hexToRgb';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import CustomStyleCode from '../../components/CustomStyleCode/CustomStyleCode';
 import SaveTheCustomButton from '../../components/SaveTheCustomButton/SaveTheCustomButton';
 import { addDoc, collection, onSnapshot } from 'firebase/firestore';
 import { dbService } from '../../fbase';
+import BoxShadowCustomStyleCode from '../../components/BoxShadowCustomStyleCode/BoxShadowCustomStyleCode';
 
 const BoxShadowManager = ({ userInfo }) => {
   const shiftRightRef = useRef();
@@ -199,7 +199,10 @@ const BoxShadowManager = ({ userInfo }) => {
           </div>
         </div>
         <SaveTheCustomButton onClick={onClick} />
-        <CustomStyleCode boxShadowStyles={boxShadowStyles} />
+        <BoxShadowCustomStyleCode
+          boxShadowStyles={boxShadowStyles}
+          userInfo={userInfo}
+        />
         <BoxShadowSampleList />
       </section>
     </>
