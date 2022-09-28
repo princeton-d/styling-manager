@@ -65,13 +65,6 @@ const TextShadowManager = ({ userInfo }) => {
       creatorId: userInfo.uid,
     });
   };
-  // useEffect(() => {
-  //   // mount, unmount
-  //   console.log('mound');
-  //   return () => {
-  //     console.log('unmount');
-  //   };
-  // }, []);
   return (
     <>
       <section className={styles.container}>
