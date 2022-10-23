@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/styling-manager/static/css/main.f70ea3a2.css",
-    "main.js": "/styling-manager/static/js/main.32b60953.js",
+    "main.js": "/styling-manager/static/js/main.b303b085.js",
     "static/media/google_logo.png": "/styling-manager/static/media/google_logo.81b266ef71e5ed02bccd.png",
     "index.html": "/styling-manager/index.html",
     "main.f70ea3a2.css.map": "/styling-manager/static/css/main.f70ea3a2.css.map",
-    "main.32b60953.js.map": "/styling-manager/static/js/main.32b60953.js.map"
+    "main.b303b085.js.map": "/styling-manager/static/js/main.b303b085.js.map"
   },
   "entrypoints": [
     "static/css/main.f70ea3a2.css",
-    "static/js/main.32b60953.js"
+    "static/js/main.b303b085.js"
   ]
 }
