@@ -15,8 +15,8 @@ import styles from './auth.module.css';
 
 const Auth = ({ isLogin, setIsLogin }) => {
   const [openModal, setOpenModal] = useState(false);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('test@test.com');
+  const [password, setPassword] = useState('123123');
 
   const onChange = (e) => {
     if (e.target.name === 'email') {
@@ -68,6 +68,7 @@ const Auth = ({ isLogin, setIsLogin }) => {
               type='text'
               required
               placeholder='email'
+              defaultValue='test@test.com'
               onChange={onChange}
             />
             <input
@@ -75,6 +76,7 @@ const Auth = ({ isLogin, setIsLogin }) => {
               type='password'
               required
               placeholder='password'
+              defaultValue='123123'
               onChange={onChange}
             />
             <div className={styles.signUp}>
